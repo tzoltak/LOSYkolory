@@ -1,0 +1,26 @@
+Package: LOSYkolory
+Type: Package
+Title: Skale kolorow wykorzystywane w systemie monitoringu karier absolwentow szkol ponadpodstawowych
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Tomasz", "Żółtak",
+      email = "tomek@zozlak.org",
+      role = c("aut", "cre")
+    )
+  )
+Description: Pakiet zawiera definicje skal kolorów i kilka pomocniczych funkcji do tworzenia wykresów w ggplot2.
+Depends:
+  R (>= 4.1.0)
+Imports:
+  extrafont (>= 0.19),
+  grDevices,
+  ggplot2 (>= 3.5.1),
+  scales
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Language: pl
+Roxygen: list(markdown = TRUE)
+NeedsCompilation: no
+RoxygenNote: 7.3.2
