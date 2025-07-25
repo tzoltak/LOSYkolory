@@ -7,7 +7,8 @@
 scale_fill_losy(
   name = waiver(),
   ...,
-  type = c("statusy", "plec", "matura", "dyplomyZaw", "typySzkol", "kontynuacje"),
+  type = eval(formals(LOSYkolory::palette_losy)$type),
+  unname = FALSE,
   aesthetics = "fill"
 )
 }
@@ -20,6 +21,13 @@ omitted.}
 \item{...}{dodatkowe argumenty przekazywane do \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}}
 
 \item{type}{ciąg znaków - typ skali}
+
+\item{unname}{wartość logiczna - czy zwracany wektor ma mieć przypisane
+nazwy (opisujące, jakiej wartości ma odpowiadać dany kolor)?
+(konieczne, kiedy mapowana zmienna nie ma stałego zestawu wartości, jak
+w przypadku raportów szkolnych, gdy kolorem oznaczana jest dana szkoła
+w odróżnieniu od jej \emph{grupy odniesienia}, p. \link{wykresBezrobocieOkresGrupaOdn}
+i \link{wykresPrzychodyGrupaOdn})}
 
 \item{aesthetics}{The names of the aesthetics that this scale works with.}
 }
@@ -39,7 +47,15 @@ p + scale_fill_losy(type = "typySzkol")
 }
 \seealso{
 \code{\link[=scale_color_losy]{scale_color_losy()}}, \code{\link[=scale_color_losy_fg]{scale_color_losy_fg()}},
-\link{wykresDyplomy}, \link{wykresKontynuacjeDziedziny}, \link{wykresKontynuacjeTypSzk},
-\link{wykresMatury}, \link{wykresPlec}, \link{wykresStatusy}, \link{wykresStatusyPlec},
-\link{wykresTypySzkol}
+\link{wykresBezrobocieOkresGrupaOdn}, \link{wykresBezrobociePlec},
+\link{wykresBezrobocieZawod},
+\link{wykresDyplomyPlec}, \link{wykresDyplomyZawod},
+\link{wykresFormyZatrudnGrupaOdn}, \link{wykresKontMlodocPracEduGrupaOdn},
+\link{wykresKontMlodocPracNeduGrupaOdn},
+\link{wykresKontynuacjeDziedzinyPlec}, \link{wykresKontynuacjeDyscyplinyPlec},
+\link{wykresKontynuacjeTypSzkPlec}, \link{wykresKontynuacjeTypSzkZawod},
+\link{wykresMaturyPlec}, \link{wykresMaturyZawod},
+\link{wykresPlec}, \link{wykresPracaOkresGrupaOdn}, \link{wykresPrzychodyGrupaOdn},
+\link{wykresStatusy}, \link{wykresStatusyPlec}, \link{wykresStatusyZawod},
+\link{wykresStatusyGrupaOdn}, \link{wykresTypySzkol}
 }

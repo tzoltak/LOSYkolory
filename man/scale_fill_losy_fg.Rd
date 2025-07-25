@@ -7,9 +7,10 @@
 scale_fill_losy_fg(
   name = waiver(),
   ...,
-  type = c("statusy", "plec", "matura", "dyplomyZaw", "typySzkol", "kontynuacje"),
+  type = eval(formals(LOSYkolory::palette_losy)$type),
   fgToChoose = c("white", "black"),
   wcag = "3",
+  unname = FALSE,
   aesthetics = "fill"
 )
 }
@@ -29,6 +30,13 @@ w stosunku do kolorów skali, na którą wskazuje wartość argumentu \code{type
 
 \item{wcag}{opcjonalnie wersja standardu WCAG (domyślnie 3), wg której ma być
 obliczany kontrast (por. \link{compute_apca_contrast} i \link{compute_contrast_ratio})}
+
+\item{unname}{wartość logiczna - czy zwracany wektor ma mieć przypisane
+nazwy (opisujące, jakiej wartości ma odpowiadać dany kolor)?
+(konieczne, kiedy mapowana zmienna nie ma stałego zestawu wartości, jak
+w przypadku raportów szkolnych, gdy kolorem oznaczana jest dana szkoła
+w odróżnieniu od jej \emph{grupy odniesienia}, p. \link{wykresBezrobocieOkresGrupaOdn}
+i \link{wykresPrzychodyGrupaOdn})}
 
 \item{aesthetics}{The names of the aesthetics that this scale works with.}
 }

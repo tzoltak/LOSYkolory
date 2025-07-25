@@ -10,20 +10,19 @@
 #' @importFrom ggplot2 discrete_scale waiver
 #' @export
 scale_color_losy <- function(name = waiver(), ...,
-                             type = c("statusy", "plec", "matura", "dyplomyZaw",
-                                      "typySzkol", "kontynuacje"),
-                             aesthetics = "colour") {
+                             type = eval(formals(LOSYkolory::palette_losy)$type),
+                             unname = FALSE, aesthetics = "colour") {
   type <- match.arg(type, several.ok = FALSE)
   discrete_scale(aesthetics, name = name,
-                 palette = create_palette_losy_fun(type), ...)
+                 palette = create_palette_losy_fun(type, unname = unname), ...)
 }
 #' @rdname scale_color_losy
 #' @export
 scale_colour_losy <- function(name = waiver(), ...,
-                              type = c("statusy", "plec", "matura", "dyplomyZaw",
-                                       "typySzkol", "kontynuacje"),
-                              aesthetics = "colour") {
-  return(scale_color_losy(name = name, ..., type = type, aesthetics = aesthetics))
+                              type = eval(formals(LOSYkolory::palette_losy)$type),
+                              unname = FALSE, aesthetics = "colour") {
+  return(scale_color_losy(name = name, ..., type = type, unname = unname,
+                          aesthetics = aesthetics))
 }
 #' @title Skale kolorow
 #' @description
@@ -34,9 +33,17 @@ scale_colour_losy <- function(name = waiver(), ...,
 #' @inheritParams create_palette_losy_fun
 #' @param ... dodatkowe argumenty przekazywane do [ggplot2::discrete_scale()]
 #' @seealso [scale_color_losy()], [scale_color_losy_fg()],
-#' [wykresDyplomy], [wykresKontynuacjeDziedziny], [wykresKontynuacjeTypSzk],
-#' [wykresMatury], [wykresPlec], [wykresStatusy], [wykresStatusyPlec],
-#' [wykresTypySzkol]
+#' [wykresBezrobocieOkresGrupaOdn], [wykresBezrobociePlec],
+#' [wykresBezrobocieZawod],
+#' [wykresDyplomyPlec], [wykresDyplomyZawod],
+#' [wykresFormyZatrudnGrupaOdn], [wykresKontMlodocPracEduGrupaOdn],
+#' [wykresKontMlodocPracNeduGrupaOdn],
+#' [wykresKontynuacjeDziedzinyPlec], [wykresKontynuacjeDyscyplinyPlec],
+#' [wykresKontynuacjeTypSzkPlec], [wykresKontynuacjeTypSzkZawod],
+#' [wykresMaturyPlec], [wykresMaturyZawod],
+#' [wykresPlec], [wykresPracaOkresGrupaOdn], [wykresPrzychodyGrupaOdn],
+#' [wykresStatusy], [wykresStatusyPlec], [wykresStatusyZawod],
+#' [wykresStatusyGrupaOdn], [wykresTypySzkol]
 #' @examples
 #' library(ggplot2)
 #' p <- ggplot(daneTypySzkol,
@@ -48,11 +55,10 @@ scale_colour_losy <- function(name = waiver(), ...,
 #' @importFrom ggplot2 discrete_scale waiver
 #' @export
 scale_fill_losy <- function(name = waiver(), ...,
-                            type = c("statusy", "plec", "matura", "dyplomyZaw",
-                                     "typySzkol", "kontynuacje"),
-                            aesthetics = "fill") {
+                            type = eval(formals(LOSYkolory::palette_losy)$type),
+                            unname = FALSE, aesthetics = "fill") {
   type <- match.arg(type, several.ok = FALSE)
   discrete_scale(aesthetics, name = name,
-                 palette = create_palette_losy_fun(type),
+                 palette = create_palette_losy_fun(type, unname = unname),
                  ...)
 }

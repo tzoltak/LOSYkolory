@@ -29,3 +29,6 @@ zestawu możliwych do wyboru kolorów pierwszoplanowych/tekstu.
 pick_more_contrasting(palette_losy("statusy"), wcag = "3")
 pick_more_contrasting(palette_losy("statusy"), wcag = "2")
 }
+\seealso{
+\code{\link[=scale_colour_losy_fg]{scale_colour_losy_fg()}}, \code{\link[=scale_fill_losy_fg]{scale_fill_losy_fg()}}
+}

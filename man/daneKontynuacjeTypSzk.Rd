@@ -5,21 +5,20 @@
 \alias{daneKontynuacjeTypSzk}
 \title{Przykladowe dane}
 \format{
-Ramka danych z 9 wierszami i 3 kolumnami:
+Ramka danych z 5 wierszami i 2 kolumnami:
 \itemize{
-\item{\code{plec} - czynnik o poziomach \emph{Ogółem}, \emph{Mężczyźni}, \emph{Kobiety},}
-\item{\code{kontynuacja} - czynnik o poziomach \emph{w szkole policealnej}, \emph{w ramach KKZ}, \emph{na studiach},}
-\item{\code{pct} - częstość wyboru danego typu kształcenia w ramach danej płci (lub ogółem).}
+\item{\code{kontynuacja} - czynnik o poziomach \emph{Nie kontynuują kształcenia}, \emph{Kurs umiejętności zawodowych}, \emph{Kwalifikacyjny kurs zawodowy}, \emph{Szkoła policealna}, \emph{Szkoła wyższa} (w zależności od typu szkoły może to też być: \emph{Nie kontynuują kształcenia}, \emph{Kurs umiejętności zawodowych}, \emph{Kwalifikacyjny kurs zawodowy}, \emph{Branżowa szkoła II stopnia}, \emph{Liceum dla dorosłych})}
+\item{\code{pct} - częstość wyboru danego typu kształcenia.}
 }
 }
 \usage{
 daneKontynuacjeTypSzk
 }
 \description{
-Przykładowe zestawienie częstości typu kontynuowania nauki
-w podziale ze względu na płeć.
+Przykładowe zestawienie częstości typu kontynuowania nauki - do
+wykorzystania w raportach szkolnych.
 }
 \seealso{
-[wykresKontynuacjeTypSzk
+\link{wykresKontynuacjeTypSzkPlec}
 }
 \keyword{datasets}

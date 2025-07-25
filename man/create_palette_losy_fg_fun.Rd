@@ -4,7 +4,7 @@
 \alias{create_palette_losy_fg_fun}
 \title{Skale kolorow}
 \usage{
-create_palette_losy_fg_fun(type, fgToChoose, wcag = "3")
+create_palette_losy_fg_fun(type, fgToChoose, wcag = "3", unname = FALSE)
 }
 \arguments{
 \item{type}{ciąg znaków - typ skali}
@@ -15,6 +15,13 @@ w stosunku do kolorów skali, na którą wskazuje wartość argumentu \code{type
 
 \item{wcag}{opcjonalnie wersja standardu WCAG (domyślnie 3), wg której ma być
 obliczany kontrast (por. \link{compute_apca_contrast} i \link{compute_contrast_ratio})}
+
+\item{unname}{wartość logiczna - czy zwracany wektor ma mieć przypisane
+nazwy (opisujące, jakiej wartości ma odpowiadać dany kolor)?
+(konieczne, kiedy mapowana zmienna nie ma stałego zestawu wartości, jak
+w przypadku raportów szkolnych, gdy kolorem oznaczana jest dana szkoła
+w odróżnieniu od jej \emph{grupy odniesienia}, p. \link{wykresBezrobocieOkresGrupaOdn}
+i \link{wykresPrzychodyGrupaOdn})}
 }
 \value{
 Funkcja zwracająca paletę kolorów (przyjmująca jako parametr liczbę

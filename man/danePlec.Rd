@@ -7,7 +7,7 @@
 \format{
 Ramka danych z 14 wierszami i 3 kolumnami:
 \itemize{
-\item{\code{typ_szk} - czynnik o siedmiu poziomach,}
+\item{\code{typ_szk} - czynnik z nazwami zawodów, kolejność poziomów którego odzwierciedla liczbę absolwentów w danym zawodzie,}
 \item{\code{plec} - czynnik o poziomach \emph{Mężczyźni}, \emph{Kobiety},}
 \item{\code{pct} - częstość danej płci w ramach danego typu szkoły.}
 }

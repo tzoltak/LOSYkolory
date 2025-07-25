@@ -63,7 +63,16 @@ ggplot(daneTypySzkol,
 }
 \seealso{
 \code{\link[=zmien_prog_pokazywania_etykiet]{zmien_prog_pokazywania_etykiet()}},
-\link{wykresDyplomy}, \link{wykresKontynuacjeDziedziny}, \link{wykresKontynuacjeTypSzk},
-\link{wykresMatury}, \link{wykresPlec}, \link{wykresStatusy}, \link{wykresStatusyPlec},
-\link{wykresTypySzkol}
+\link{wykresBezrobocie}, \link{wykresBezrobocieOkresGrupaOdn}, \link{wykresBezrobociePlec},
+\link{wykresBezrobocieZawod},
+\link{wykresDyplomyPlec}, \link{wykresDyplomyZawod},
+\link{wykresFormyZatrudnGrupaOdn}, \link{wykresKontMlodocPracEduGrupaOdn},
+\link{wykresKontMlodocPracNeduGrupaOdn},
+\link{wykresKontynuacjeDziedzinyPlec}, \link{wykresKontynuacjeDyscyplinyPlec},
+\link{wykresKontynuacjeTypSzk}, \link{wykresKontynuacjeTypSzkPlec},
+\link{wykresKontynuacjeTypSzkZawod},
+\link{wykresMaturyPlec}, \link{wykresMaturyZawod},
+\link{wykresPlec}, \link{wykresPracaOkresGrupaOdn}, \link{wykresPrzychodyGrupaOdn},
+\link{wykresStatusy}, \link{wykresStatusyPlec}, \link{wykresStatusyZawod},
+\link{wykresStatusyGrupaOdn}, \link{wykresTypySzkol}
 }

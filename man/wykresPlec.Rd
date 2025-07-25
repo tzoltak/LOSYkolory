@@ -32,7 +32,6 @@ ggplot(danePlec,
   scale_fill_losy(NULL, type = "plec",
                   guide = guide_legend(ncol = 2)) +
   scale_colour_losy_fg(NULL, type = "plec", guide = "none") +
-  theme_minimal(base_size = 18) +
   theme_losy() +
   dodaj_rok_w_podpisie(rok = 3254)
 }

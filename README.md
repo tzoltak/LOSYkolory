@@ -25,13 +25,30 @@ Dokładnie w ten sam sposób można przeprowadzić aktualizację pakietu do najn
 
 1.  Szablony wykresów wykorzystywanych w raportach z monitoringu. Szablony wykresów (obiekty z wykresami *ggplot2*) oraz wykorzystywane przez nie szablony danych (ramki danych zawierające artefaktualne dane - prawdziwe dane powinny zostać przygotowane w analogicznej strukturze, aby mogły zostać użyte z danym szablonem wykresu) są zapisane jako obiekty R zamknięte w pakiecie i dostępne pod następującymi nazwami:
 
-    -   `wykresDyplomy`/`daneDyplomy` - uzyskiwanie dyplomów w podziale ze względu na płeć,
-    -   `wykresKontynuacjeDziedziny`/`daneKontynuacjeDziedziny`- dziedziny kontynuowania nauki na studiach w podziale ze względu na płeć,
-    -   `wykresKontynuacjeTypSzk`/`daneKontynuacjeTypSzk` - forma kontynuowania nauki w podziale ze względu na płeć,
-    -   `wykresMatury`/`daneMatury` -  wyniki matury (zdana/nie zdana) w podziale ze względu na wyuczony zawód,
+    -   `wykresBezrobocie`/`daneBezrobocie` - częstość występowania bezrobotnych wśród absolwentów w poszczególnych miesiącach od ukończenia szkoły,
+    -   `wykresBezrobocieOkresGrupaOdn`/`daneBezrobocieOkresGrupaOdn` - częstość występowania bezrobotnych w porównaniu pomiędzy daną szkołą a odpowiadającą jej *grupą odniesienia* - do wykorzystania w raportach szkolnych,
+    -   `wykresBezrobociePlec`/`daneBezrobociePlec` - częstość występowania bezrobotnych wśród absolwentów w podziale ze względu na płeć,
+    -   `wykresBezrobocieZawod`/`daneBezrobocieZawod` - częstość występowania bezrobotnych wśród absolwentów w podziale ze względu na (najczęściej wykonywane) zawody wyuczone,
+    -   `wykresDyplomyPlec`/`daneDyplomyPlec` - uzyskiwanie dyplomów w podziale ze względu na płeć,
+    -   `wykresDyplomyZawod`/`daneDyplomyZawod` - uzyskiwanie dyplomów w podziale ze względu na (najczęściej wykonywane) zawody wyuczone,
+    -   `wykresFormyZatrudnGrupaOdn`/`daneFormyZatrudnGrupaOdn` - formy zatrudnienia w porównaniu pomiędzy daną szkołą a odpowiadającą jej *grupą odniesienia* - do wykorzystania w raportach szkolnych,
+    -   `wykresKontMlodocPracEduGrupaOdn`/`daneKontMlodocPracEduGrupaOdn`- częstość kontynuowania pracy u tego samego pracodawcy, u którego absolwent był młodocianym pracownikiem, wśród absolwentów kontynuujących naukę pomiędzy daną szkołą a odpowiadającą jej *grupą odniesienia* - do wykorzystania w raportach szkolnych,
+    -   `wykresKontMlodocPracNeduGrupaOdn`/`daneKontMlodocPracNeduGrupaOdn`- częstość kontynuowania pracy u tego samego pracodawcy, u którego absolwent był młodocianym pracownikiem, wśród absolwentów niekontynuujących nauki pomiędzy daną szkołą a odpowiadającą jej *grupą odniesienia* - do wykorzystania w raportach szkolnych,
+    -   `wykresKontynuacjeDyscyplinyPlec`/`daneKontynuacjeDyscyplinyPlec` - dyscypliny kontynuowania nauki na studiach w podziale ze względu na płeć,
+    -   `wykresKontynuacjeDziedzinyPlec`/`daneKontynuacjeDziedzinyPlec` - dziedziny kontynuowania nauki na studiach w podziale ze względu na płeć,
+    -   `wykresKontynuacjeTypSzk`/`daneKontynuacjeTypSzk` - forma kontynuowania nauki - do wykorzystania w raportach szkolnych,
+    -   `wykresKontynuacjeTypSzkPlec`/`daneKontynuacjeTypSzkPlec` - forma kontynuowania nauki w podziale ze względu na płeć,
+    -   `wykresKontynuacjeTypSzkZawod`/`daneKontynuacjeTypSzkZawod` - forma kontynuowania nauki w podziale ze względu na (najczęściej wykonywane) zawody wyuczone,
+    -   `wykresMaturyPlec`/`daneMaturyPlec` - wyniki matury (zdana/nie zdana) w podziale ze względu na płeć,
+    -   `wykresMaturyZawod`/`daneMaturyZawod`- wyniki matury (zdana/nie zdana) w podziale ze względu na (najczęściej wykonywane) zawody wyuczone,
+    -   `wykresMigracjeWoj`/`daneMigracjeWoj`/`sfWoj` - kartogram ilustrujący migracje na poziomie województw,
     -   `wykresPlec`/`danePlec` - płeć w podziale ze względu na typ ukończonej szkoły,
+    -   `wykresPracaOkresGrupaOdn`/`danePracaOkresGrupaOdn` - długość posiadania pracy pomiędzy daną szkołą a odpowiadającą jej *grupą odniesienia* - do wykorzystania w raportach szkolnych,
+    -   `wykresPrzychodyGrupaOdn`/`danePrzychodyGrupaOdn` - rozkład przychodów z pracy (etatowej) w porównaniu pomiędzy daną szkołą a odpowiadającą jej *grupą odniesienia* - do wykorzystania w raportach szkolnych,
     -   `wykresStatusy`/`daneStatusy`- statusy edukacyjno-zawodowe ze względu na miesiąc od ukończenia szkoły,
     -   `wykresStatusyPlec`/`daneStatusyPlec` - statusy edukacyjno-zawodowe ze względu na płeć,
+    -   `wykresStatusyZawod`/`daneStatusyZawod` - statusy edukacyjno-zawodowe ze względu na (najczęściej wykonywane) zawody wyuczone,
+    -   `wykresStatusyGrupaOdn`/`daneStatusyGrupaOdn` - statusy edukacyjno-zawodowe w porównaniu pomiędzy daną szkołą a odpowiadającą jej *grupą odniesienia* - do wykorzystania w raportach szkolnych.
     -   `wykresTypySzkol`/`daneTypySzkol` - typy ukończonych szkół.
 
 2.  Funkcje umożliwiające zmienianie niektórych elementów wykresów *ggplot2*, wykorzystywanych jako szablony:
@@ -47,7 +64,7 @@ Dokładnie w ten sam sposób można przeprowadzić aktualizację pakietu do najn
 
     -   `palette_losy()` - zwraca palety wykorzystywane w monitoringu,
     -   `scale_color_losy()`, `scale_colour_losy()`, `scale_fill_losy()` - pozwalają zastosować palety wykorzystywane w monitoringu do wykresów *ggplot2*,
-    -   `scale_color_losy_fg()`, `scale_colour_losy_fg()`, `scale_fill_losy_fg()` - pozwalają wybrać jak najbardziej kontrastowe kolory pierwszoplanowe do kolorów palet wykorzystywanych w monitoringu (które mają być tłem dla tych kolorów pierwszoplanowych) i zastosować je do wykresów *ggplot2*.
+    -   `scale_color_losy_fg()`, `scale_colour_losy_fg()`, `scale_fill_losy_fg()`, `scale_color_gradient_fg()`, `scale_colour_gradient_fg()` - pozwalają wybrać jak najbardziej kontrastowe kolory pierwszoplanowe do kolorów palet wykorzystywanych w monitoringu (które mają być tłem dla tych kolorów pierwszoplanowych) i zastosować je do wykresów *ggplot2*.
 
 4.  Funkcje pozwalające wygodnie formatować etykiety wartości wykresów słupkowych, w tym ukrywać etykiety wartości mniejszych od zadanego progu:
 
@@ -67,10 +84,10 @@ Najbardziej typowy schemat użycia to wybrać odpowiedni szablon wykresu, podmie
 library(LOSYkolory)
 library(ggplot2)
 
-str(daneDyplomy) # szablon oczekuje danych o takiej strukturze
-noweDane <- daneDyplomy # podstawiam tu te same dane, ale w realnym użyciu będą inne
+str(daneDyplomyPlec) # szablon oczekuje danych o takiej strukturze
+noweDane <- daneDyplomyPlec # podstawiam tu te same dane, ale w realnym użyciu będą inne
 
-(wykresDyplomy %+% noweDane) |> # podmiana danych
+(wykresDyplomyPlec %+% noweDane) |> # podmiana danych
   zmien_wielkosc_czcionek(baseSize = 16) |> # zmiana wielkości czcionki
   zmien_prog_pokazywania_etykiet(hideBelow = 0.04) |> # zmiana progu ukrywania etykiet
   zmien_rok_w_podpisie(2024) # zmiana roku w podpisie

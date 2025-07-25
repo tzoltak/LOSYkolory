@@ -4,10 +4,17 @@
 \alias{create_palette_losy_fun}
 \title{Skale kolorow}
 \usage{
-create_palette_losy_fun(type)
+create_palette_losy_fun(type, unname = FALSE)
 }
 \arguments{
 \item{type}{ciąg znaków - typ skali}
+
+\item{unname}{wartość logiczna - czy zwracany wektor ma mieć przypisane
+nazwy (opisujące, jakiej wartości ma odpowiadać dany kolor)?
+(konieczne, kiedy mapowana zmienna nie ma stałego zestawu wartości, jak
+w przypadku raportów szkolnych, gdy kolorem oznaczana jest dana szkoła
+w odróżnieniu od jej \emph{grupy odniesienia}, p. \link{wykresBezrobocieOkresGrupaOdn}
+i \link{wykresPrzychodyGrupaOdn})}
 }
 \value{
 Funkcja zwracająca paletę kolorów (przyjmująca jako parametr liczbę

@@ -113,10 +113,13 @@ zmien_prog_pokazywania_etykiet <- function(g, hideBelow = NULL, label = NULL) {
 #'    opisują przekazywanie wartości argumentu do funkcji.
 #'
 #' **Założenia te** dobrze pasują do sytuacji, gdy modyfikowane są szablony
-#' wykresów zawarte w tym pakiecie ([wykresDyplomy],
-#' [wykresKontynuacjeDziedziny], [wykresKontynuacjeTypSzk], [wykresMatury],
-#' [wykresPlec], [wykresStatusy], [wykresStatusyPlec], [wykresTypySzkol]), ale
-#' **w ogólności mogą się nie sprawdzać**.
+#' wykresów zawarte w tym pakiecie ([wykresBezrobociePlec],
+#' [wykresBezrobocieZawod], [wykresDyplomyPlec], [wykresDyplomyZawod],
+#' [wykresFormyZatrudnGrupaOdn], [wykresKontMlodocPracEduGrupaOdn],
+#' [wykresKontMlodocPracNeduGrupaOdn], [wykresMaturyPlec], [wykresMaturyZawod],
+#' [wykresPlec], [wykresPracaOkresGrupaOdn],  [wykresStatusy],
+#' [wykresStatusyPlec], [wykresStatusyZawod], [wykresStatusyGrupaOdn],
+#' [wykresTypySzkol]), ale **w ogólności mogą się nie sprawdzać**.
 #' @returns zmodyfikowane wyrażenie
 zmien_hideBelow <- function(x, zmiana) {
   d <- deparse(x)

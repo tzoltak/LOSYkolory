@@ -5,11 +5,24 @@
 \title{Skale kolorow}
 \usage{
 palette_losy(
-  type = c("statusy", "plec", "matura", "dyplomyZaw", "typySzkol", "kontynuacje")
+  type = c("bezrobocie", "dyplomyZaw", "formyZatrudn", "grupaOdn", "kontMlodocPracEdu",
+    "kontMlodocPracNedu", "kontynuacje", "matura", "okresPracy", "plec", "statusy",
+    "typySzkol"),
+  unname = FALSE
 )
 }
 \arguments{
 \item{type}{ciąg znaków - typ skali}
+
+\item{unname}{wartość logiczna - czy zwracany wektor ma mieć przypisane
+nazwy (opisujące, jakiej wartości ma odpowiadać dany kolor)?
+(konieczne, kiedy mapowana zmienna nie ma stałego zestawu wartości, jak
+w przypadku raportów szkolnych, gdy kolorem oznaczana jest dana szkoła
+w odróżnieniu od jej \emph{grupy odniesienia}, p. \link{wykresBezrobocieOkresGrupaOdn}
+i \link{wykresPrzychodyGrupaOdn})}
+}
+\value{
+wektor ciągów znaków z kodami kolorów palety
 }
 \description{
 Zwraca skale kolorów wykorzystywane w monitoringu karier absolwentów szkół

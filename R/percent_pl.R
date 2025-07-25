@@ -43,9 +43,18 @@
 #'   scale_x_continuous(NULL, breaks = seq(0, 1, length.out = 9),
 #'                      labels = label_percent_pl(digits = 1))
 #' @seealso [zmien_prog_pokazywania_etykiet()],
-#' [wykresDyplomy], [wykresKontynuacjeDziedziny], [wykresKontynuacjeTypSzk],
-#' [wykresMatury], [wykresPlec], [wykresStatusy], [wykresStatusyPlec],
-#' [wykresTypySzkol]
+#' [wykresBezrobocie], [wykresBezrobocieOkresGrupaOdn], [wykresBezrobociePlec],
+#' [wykresBezrobocieZawod],
+#' [wykresDyplomyPlec], [wykresDyplomyZawod],
+#' [wykresFormyZatrudnGrupaOdn], [wykresKontMlodocPracEduGrupaOdn],
+#' [wykresKontMlodocPracNeduGrupaOdn],
+#' [wykresKontynuacjeDziedzinyPlec], [wykresKontynuacjeDyscyplinyPlec],
+#' [wykresKontynuacjeTypSzk], [wykresKontynuacjeTypSzkPlec],
+#' [wykresKontynuacjeTypSzkZawod],
+#' [wykresMaturyPlec], [wykresMaturyZawod],
+#' [wykresPlec], [wykresPracaOkresGrupaOdn], [wykresPrzychodyGrupaOdn],
+#' [wykresStatusy], [wykresStatusyPlec], [wykresStatusyZawod],
+#' [wykresStatusyGrupaOdn], [wykresTypySzkol]
 #' @importFrom scales label_percent
 #' @export
 label_percent_pl <- function(digits = NULL, hideBelow = 0, ...) {

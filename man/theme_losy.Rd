@@ -8,7 +8,8 @@ theme_losy(
   base_size = 18,
   base_family = "",
   base_line_size = base_size/22,
-  base_rect_size = base_size/22
+  base_rect_size = base_size/22,
+  axis_ticks = c("x", "y", "xy", "none")
 )
 }
 \arguments{
@@ -19,6 +20,9 @@ theme_losy(
 \item{base_line_size}{opcjonalnie liczba, p. \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}}}
 
 \item{base_rect_size}{opcjonalnie liczba, p. \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}}}
+
+\item{axis_ticks}{opcjonalnie ciąg znaków wskazujący, na której osi/osiach
+wykresu mają zostać narysowane \emph{pręciki} przy podanych wartościach}
 }
 \description{
 Nadaje wykresowi \emph{\link[ggplot2:ggtheme]{temat}} definiujący jego wygląd
@@ -46,7 +50,16 @@ p +
 }
 \seealso{
 \code{\link[=zmien_wielkosc_czcionek]{zmien_wielkosc_czcionek()}}, \code{\link[=zmien_rodzine_czcionek]{zmien_rodzine_czcionek()}},
-\link{wykresDyplomy}, \link{wykresKontynuacjeDziedziny}, \link{wykresKontynuacjeTypSzk},
-\link{wykresMatury}, \link{wykresPlec}, \link{wykresStatusy}, \link{wykresStatusyPlec},
-\link{wykresTypySzkol}
+\link{wykresBezrobocie}, \link{wykresBezrobocieOkresGrupaOdn}, \link{wykresBezrobociePlec},
+\link{wykresBezrobocieZawod},
+\link{wykresDyplomyPlec}, \link{wykresDyplomyZawod},
+\link{wykresFormyZatrudnGrupaOdn}, \link{wykresKontMlodocPracEduGrupaOdn},
+\link{wykresKontMlodocPracNeduGrupaOdn},
+\link{wykresKontynuacjeDziedzinyPlec}, \link{wykresKontynuacjeDyscyplinyPlec},
+\link{wykresKontynuacjeTypSzk}, \link{wykresKontynuacjeTypSzkPlec},
+\link{wykresKontynuacjeTypSzkZawod},
+\link{wykresMaturyPlec}, \link{wykresMaturyZawod},
+\link{wykresPlec}, \link{wykresPracaOkresGrupaOdn}, \link{wykresPrzychodyGrupaOdn},
+\link{wykresStatusy}, \link{wykresStatusyPlec}, \link{wykresStatusyZawod},
+\link{wykresStatusyGrupaOdn}, \link{wykresTypySzkol}
 }

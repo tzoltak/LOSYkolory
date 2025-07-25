@@ -8,18 +8,20 @@
 scale_color_losy_fg(
   name = waiver(),
   ...,
-  type = c("statusy", "plec", "matura", "dyplomyZaw", "typySzkol", "kontynuacje"),
+  type = eval(formals(LOSYkolory::palette_losy)$type),
   fgToChoose = c("white", "black"),
   wcag = "3",
+  unname = FALSE,
   aesthetics = "colour"
 )
 
 scale_colour_losy_fg(
   name = waiver(),
   ...,
-  type = c("statusy", "plec", "matura", "dyplomyZaw", "typySzkol", "kontynuacje"),
+  type = eval(formals(LOSYkolory::palette_losy)$type),
   fgToChoose = c("white", "black"),
   wcag = "3",
+  unname = FALSE,
   aesthetics = "colour"
 )
 }
@@ -39,6 +41,13 @@ w stosunku do kolorów skali, na którą wskazuje wartość argumentu \code{type
 
 \item{wcag}{opcjonalnie wersja standardu WCAG (domyślnie 3), wg której ma być
 obliczany kontrast (por. \link{compute_apca_contrast} i \link{compute_contrast_ratio})}
+
+\item{unname}{wartość logiczna - czy zwracany wektor ma mieć przypisane
+nazwy (opisujące, jakiej wartości ma odpowiadać dany kolor)?
+(konieczne, kiedy mapowana zmienna nie ma stałego zestawu wartości, jak
+w przypadku raportów szkolnych, gdy kolorem oznaczana jest dana szkoła
+w odróżnieniu od jej \emph{grupy odniesienia}, p. \link{wykresBezrobocieOkresGrupaOdn}
+i \link{wykresPrzychodyGrupaOdn})}
 
 \item{aesthetics}{The names of the aesthetics that this scale works with.}
 }
@@ -63,7 +72,12 @@ p + scale_color_losy_fg(type = "typySzkol", guide = "none")
 }
 \seealso{
 \code{\link[=scale_fill_losy]{scale_fill_losy()}}, \code{\link[=pick_more_contrasting]{pick_more_contrasting()}}, \code{\link[=scale_fill_losy_fg]{scale_fill_losy_fg()}},
-\link{wykresDyplomy}, \link{wykresKontynuacjeDziedziny}, \link{wykresKontynuacjeTypSzk},
-\link{wykresMatury}, \link{wykresPlec}, \link{wykresStatusy}, \link{wykresStatusyPlec},
-\link{wykresTypySzkol}
+\link{wykresBezrobociePlec}, \link{wykresBezrobocieZawod},
+\link{wykresDyplomyPlec}, \link{wykresDyplomyZawod},
+\link{wykresFormyZatrudnGrupaOdn}, \link{wykresKontMlodocPracEduGrupaOdn},
+\link{wykresKontMlodocPracNeduGrupaOdn},
+\link{wykresMaturyPlec}, \link{wykresMaturyZawod},
+\link{wykresPlec}, \link{wykresPracaOkresGrupaOdn},
+\link{wykresStatusy}, \link{wykresStatusyPlec}, \link{wykresStatusyZawod},
+\link{wykresStatusyGrupaOdn}, \link{wykresTypySzkol}
 }

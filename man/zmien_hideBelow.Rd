@@ -32,8 +32,11 @@ opisują przekazywanie wartości argumentu do funkcji.
 }
 
 \strong{Założenia te} dobrze pasują do sytuacji, gdy modyfikowane są szablony
-wykresów zawarte w tym pakiecie (\link{wykresDyplomy},
-\link{wykresKontynuacjeDziedziny}, \link{wykresKontynuacjeTypSzk}, \link{wykresMatury},
-\link{wykresPlec}, \link{wykresStatusy}, \link{wykresStatusyPlec}, \link{wykresTypySzkol}), ale
-\strong{w ogólności mogą się nie sprawdzać}.
+wykresów zawarte w tym pakiecie (\link{wykresBezrobociePlec},
+\link{wykresBezrobocieZawod}, \link{wykresDyplomyPlec}, \link{wykresDyplomyZawod},
+\link{wykresFormyZatrudnGrupaOdn}, \link{wykresKontMlodocPracEduGrupaOdn},
+\link{wykresKontMlodocPracNeduGrupaOdn}, \link{wykresMaturyPlec}, \link{wykresMaturyZawod},
+\link{wykresPlec}, \link{wykresPracaOkresGrupaOdn},  \link{wykresStatusy},
+\link{wykresStatusyPlec}, \link{wykresStatusyZawod}, \link{wykresStatusyGrupaOdn},
+\link{wykresTypySzkol}), ale \strong{w ogólności mogą się nie sprawdzać}.
 }

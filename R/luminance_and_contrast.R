@@ -141,6 +141,7 @@ compute_apca_contrast <- function(fg, bg) {
 #' obliczany kontrast (por. [compute_apca_contrast] i [compute_contrast_ratio])
 #' @returns wektor tekstowy z kodami RGB wybranych kolorów
 #' pierwszoplanowych/tekstu
+#' @seealso [scale_colour_losy_fg()], [scale_fill_losy_fg()]
 #' @examples
 #' # różnice między WCAG 2 a WCAG 3 są znaczne:
 #' pick_more_contrasting(palette_losy("statusy"), wcag = "3")
@@ -160,7 +161,11 @@ pick_more_contrasting <- function(bg, fg = c("#000000", "#FFFFFF"),
                                        args = list(rep(bg, length(fg)),
                                                    fg)))
                       }, fg)
-  rownames(contrasts) <- fg
+  if (!is.matrix(contrasts)) {
+    contrasts <- matrix(contrasts, nrow = 1, dimnames = list(fg, bg))
+  } else {
+    rownames(contrasts) <- fg
+  }
   choices <- fg[apply(abs(contrasts), 2, which.max)]
   names(choices) <- names(bg)
   attributes(choices)$contrasts <- contrasts

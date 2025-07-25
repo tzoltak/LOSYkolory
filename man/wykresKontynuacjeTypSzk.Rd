@@ -11,8 +11,8 @@ Wykres \emph{\link[ggplot2:ggplot]{ggplot2}}.
 wykresKontynuacjeTypSzk
 }
 \description{
-Wykres z przykładowym zestawieniem form kontynuowania
-nauki w podziale ze względu na płeć.
+Wykres z przykładowym zestawieniem częstości typu kontynuowania
+nauki - do wykorzystania w raportach szkolnych.
 }
 \examples{
 wykresKontynuacjeTypSzk
@@ -20,21 +20,16 @@ wykresKontynuacjeTypSzk
 # kod tworzący ten wykres:
 library(ggplot2)
 ggplot(daneKontynuacjeTypSzk,
-       aes(pct, plec, fill = kontynuacja,
-           label = percent_pl(pct, digits = 0))) +
-  geom_col(position = position_dodge2(width = 1, reverse = TRUE)) +
+       aes(pct, kontynuacja, label = percent_pl(pct, digits = 0))) +
+  geom_col(position = position_dodge2(width = 1, reverse = TRUE),
+           fill = "#009899") +
   geom_text(position = position_dodge2(width = 1, reverse = TRUE),
             size = 6, hjust = -0.2) +
   scale_x_continuous(NULL, breaks = NULL, expand = c(0, 0, 0.2, 0)) +
   scale_y_discrete(NULL) +
-  scale_fill_losy(NULL, type = "kontynuacje",
-                  guide = guide_legend(ncol = 3)) +
-  scale_colour_losy_fg(NULL, type = "kontynuacje", guide = "none") +
-  theme_losy() +
-  dodaj_rok_w_podpisie(rok = 3254)
+  theme_losy()
 }
 \seealso{
-\link{daneKontynuacjeTypSzk}, \code{\link[=percent_pl]{percent_pl()}}, \code{\link[=scale_fill_losy]{scale_fill_losy()}},
-\code{\link[=scale_colour_losy_fg]{scale_colour_losy_fg()}}, \code{\link[=theme_losy]{theme_losy()}}
+\link{daneKontynuacjeTypSzk}, \code{\link[=percent_pl]{percent_pl()}}, \code{\link[=theme_losy]{theme_losy()}}
 }
 \keyword{datasets}

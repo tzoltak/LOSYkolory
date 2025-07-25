@@ -7,6 +7,8 @@
 #' @param base_family opcjonalnie ciąg znaków, p. [ggplot2::theme_minimal()]
 #' @param base_line_size opcjonalnie liczba, p. [ggplot2::theme_minimal()]
 #' @param base_rect_size opcjonalnie liczba, p. [ggplot2::theme_minimal()]
+#' @param axis_ticks opcjonalnie ciąg znaków wskazujący, na której osi/osiach
+#' wykresu mają zostać narysowane *pręciki* przy podanych wartościach
 #' @examples
 #' library(ggplot2)
 #' p <- ggplot(daneTypySzkol,
@@ -26,16 +28,26 @@
 #' p +
 #'   theme_losy(base_family = "sans")
 #' @seealso [zmien_wielkosc_czcionek()], [zmien_rodzine_czcionek()],
-#' [wykresDyplomy], [wykresKontynuacjeDziedziny], [wykresKontynuacjeTypSzk],
-#' [wykresMatury], [wykresPlec], [wykresStatusy], [wykresStatusyPlec],
-#' [wykresTypySzkol]
+#' [wykresBezrobocie], [wykresBezrobocieOkresGrupaOdn], [wykresBezrobociePlec],
+#' [wykresBezrobocieZawod],
+#' [wykresDyplomyPlec], [wykresDyplomyZawod],
+#' [wykresFormyZatrudnGrupaOdn], [wykresKontMlodocPracEduGrupaOdn],
+#' [wykresKontMlodocPracNeduGrupaOdn],
+#' [wykresKontynuacjeDziedzinyPlec], [wykresKontynuacjeDyscyplinyPlec],
+#' [wykresKontynuacjeTypSzk], [wykresKontynuacjeTypSzkPlec],
+#' [wykresKontynuacjeTypSzkZawod],
+#' [wykresMaturyPlec], [wykresMaturyZawod],
+#' [wykresPlec], [wykresPracaOkresGrupaOdn], [wykresPrzychodyGrupaOdn],
+#' [wykresStatusy], [wykresStatusyPlec], [wykresStatusyZawod],
+#' [wykresStatusyGrupaOdn], [wykresTypySzkol]
 #' @importFrom extrafont fonts
 #' @importFrom ggplot2 %+replace% element_blank element_line element_text
 #' theme theme_minimal unit
 #' @export
 theme_losy <- function(base_size = 18, base_family = "",
                        base_line_size = base_size/22,
-                       base_rect_size = base_size/22) {
+                       base_rect_size = base_size/22,
+                       axis_ticks = c("x", "y", "xy", "none")) {
   stopifnot(is.character(base_family), length(base_family) == 1L,
             !anyNA(base_family))
   if (!(base_family %in% fonts()) & base_family != "") {
@@ -45,11 +57,29 @@ theme_losy <- function(base_size = 18, base_family = "",
             "extrafont::font_import()\n",
             "extrafont::loadfonts(quiet = TRUE)")
   }
+  axis_ticks <- match.arg(axis_ticks, several.ok = FALSE)
+  if (axis_ticks %in% c("x", "xy")) {
+    axisTicksX = list(ticks = element_line(colour = "grey20"),
+                      length = unit(base_size/3, "pt"))
+  } else {
+    axisTicksX = list(ticks = element_blank(),
+                      length = unit(0, "pt"))
+  }
+  if (axis_ticks %in% c("y", "xy")) {
+    axisTicksY = list(ticks = element_line(colour = "grey20"),
+                      length = unit(base_size/3, "pt"))
+  } else {
+    axisTicksY = list(ticks = element_blank(),
+                      length = unit(0, "pt"))
+  }
   return(theme_minimal(base_size = base_size, base_family = base_family,
                        base_line_size = base_line_size,
                        base_rect_size = base_rect_size) %+replace%
-           theme(axis.ticks.x = element_line(colour = "grey20"),
-                 axis.ticks.length.x = unit(base_size/3, "pt"),
+           theme(axis.ticks.x = axisTicksX$ticks,
+                 axis.ticks.length.x = axisTicksX$length,
+                 axis.ticks.y = axisTicksY$ticks,
+                 axis.ticks.length.y = axisTicksY$length,
+                 strip.text.x = element_text(size = base_size*0.85),
                  legend.position = "bottom",
                  legend.byrow = TRUE,
                  plot.caption.position = "plot",
