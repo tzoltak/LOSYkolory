@@ -7,5 +7,5 @@
 #'   \item{`teryt_woj` - kody (1/2-cyforwe) TERYT województw; zawiera też wiersz z brakiem danych, przeznaczony do opisania, że województo jest nieznane,}
 #'   \item{`nazwa_woj` - nazwy województw (małymi literami); zawiera też dodatkowo województwo opisane jako *nieznane*.}
 #' }
-#' @seealso [daneMigracjeWoj], [wykresMigracjeWoj]
+#' @seealso [daneMigracjeWoj], [zlacz_z_mapa()], [wykresMigracjeWoj]
 "sfWoj"

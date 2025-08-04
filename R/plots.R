@@ -112,21 +112,21 @@
 #'
 #' # kod tworzący ten wykres:
 #' library(ggplot2)
-# ggplot(daneDyplomyPlec,
-#        aes(pct, plec, fill = dyplom,
-#            label = percent_pl(pct, digits = 0, hideBelow = 0.05))) +
-#   geom_col(position = position_stack(reverse = TRUE)) +
-#   geom_text(aes(colour = dyplom),
-#             position = position_stack(reverse = TRUE, vjust = 0.5),
-#             size = 7) +
-#   scale_x_continuous(NULL, labels = label_percent_pl(),
-#                      expand = c(0, 0, 0, 0.01)) +
-#   scale_y_discrete(NULL, expand = c(0, 0)) +
-#   scale_fill_losy(NULL, type = "dyplomyZaw",
-#                   guide = guide_legend(ncol = 2)) +
-#   scale_colour_losy_fg(NULL, type = "dyplomyZaw", guide = "none") +
-#   theme_losy() +
-#   dodaj_rok_w_podpisie(rok = 3254)
+#' ggplot(daneDyplomyPlec,
+#'        aes(pct, plec, fill = dyplom,
+#'            label = percent_pl(pct, digits = 0, hideBelow = 0.05))) +
+#'   geom_col(position = position_stack(reverse = TRUE)) +
+#'   geom_text(aes(colour = dyplom),
+#'             position = position_stack(reverse = TRUE, vjust = 0.5),
+#'             size = 7) +
+#'   scale_x_continuous(NULL, labels = label_percent_pl(),
+#'                      expand = c(0, 0, 0, 0.01)) +
+#'   scale_y_discrete(NULL, expand = c(0, 0)) +
+#'   scale_fill_losy(NULL, type = "dyplomyZaw",
+#'                   guide = guide_legend(ncol = 2)) +
+#'   scale_colour_losy_fg(NULL, type = "dyplomyZaw", guide = "none") +
+#'   theme_losy() +
+#'   dodaj_rok_w_podpisie(rok = 3254)
 "wykresDyplomyPlec"
 #' @title Przykladowe wykresy
 #' @description Wykres z przykładowym zestawieniem uzyskiwania
@@ -416,30 +416,31 @@
 #' województwach).
 #' @format Wykres *[ggplot2][ggplot2::ggplot]*.
 #' @seealso [daneMigracjeWoj], [percent_pl()], [theme_losy()],
-#' [scale_colour_gradient_fg]
+#' [scale_colour_gradient_fg], [st_point_on_surface_sw()]
 #' @examples
-#' \dontrun{
 #' wykresMigracjeWoj
 #'
 #' # kod tworzący ten wykres:
 #' library(ggplot2)
-#' ggplot(merge(sfWoj, daneMigracjeWoj, all = TRUE),
-#'        aes(fill = pct, colour = pct,
-#'            label = percent_pl(pct, digits = 1))) +
+#' ggplot(zlacz_z_mapa(daneMigracjeWoj),
+#'       aes(fill = pct, colour = pct,
+#'          label = percent_pl(pct, digits = 1))) +
 #'   geom_sf() +
-#'   geom_sf_text(size = 5) +
+#'   geom_sf_text(size = 5,
+#'                fun.geometry = st_point_on_surface_sw) +
 #'   geom_sf_text(aes(label = label), colour = "black", size = 5,
 #'                hjust = "left", vjust = "bottom",
 #'                data = function(x) {
 #'                  x <- x[x$nazwa_woj == "nieznane", ]
-#'                  x$label <- rep("Nieznane     \nwojewództwo", nrow(x))
-#'                  if (nrow(x) > 0L) {
-#'                    x$geometryProperty <-
-#'                      sf::st_sfc(sf::st_point(c(14.6, 49.7)),
-#'                                 crs = attributes(x$geometryProperty)$crs)
-#'                  }
-#'                  return(x)
-#'                }) +
+#'                 x$label <- rep("Nieznane     \nwojewództwo", nrow(x))
+#'                 if (nrow(x) > 0L) {
+#'                   x$geometryProperty <-
+#'                     sf::st_sfc(sf::st_point(c(14.6, 49.7)),
+#'                                crs = attributes(x$geometryProperty)$crs)
+#'                 }
+#'                 return(x)
+#'               },
+#'               fun.geometry = st_point_on_surface_sw) +
 #'   scale_x_continuous(NULL, labels = function(x) {return(rep("", length(x)))},
 #'                      expand = c(0, 0)) +
 #'   scale_y_continuous(NULL, labels = function(x) {return(rep("", length(x)))},
@@ -449,7 +450,6 @@
 #'   scale_colour_gradient_fg(NULL, low = "#efefff", high = "#25304d") +
 #'   theme_losy(axis_ticks = "none") +
 #'   dodaj_rok_w_podpisie(rok = 3254)
-#' }
 "wykresMigracjeWoj"
 #' @title Przykladowe wykresy
 #' @description Wykres z przykładowym zestawieniem płci w podziale ze względu

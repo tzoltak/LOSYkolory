@@ -8,7 +8,8 @@ palette_losy(
   type = c("bezrobocie", "dyplomyZaw", "formyZatrudn", "grupaOdn", "kontMlodocPracEdu",
     "kontMlodocPracNedu", "kontynuacje", "matura", "okresPracy", "plec", "statusy",
     "typySzkol"),
-  unname = FALSE
+  unname = FALSE,
+  variantOld = FALSE
 )
 }
 \arguments{
@@ -20,6 +21,9 @@ nazwy (opisujące, jakiej wartości ma odpowiadać dany kolor)?
 w przypadku raportów szkolnych, gdy kolorem oznaczana jest dana szkoła
 w odróżnieniu od jej \emph{grupy odniesienia}, p. \link{wykresBezrobocieOkresGrupaOdn}
 i \link{wykresPrzychodyGrupaOdn})}
+
+\item{variantOld}{wartość logiczna - czy zwrócić palety używane w raportach
+do 2024 r.?}
 }
 \value{
 wektor ciągów znaków z kodami kolorów palety

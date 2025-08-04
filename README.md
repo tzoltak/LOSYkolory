@@ -78,6 +78,8 @@ Dokładnie w ten sam sposób można przeprowadzić aktualizację pakietu do najn
 
 # Użycie
 
+## Typowy sposób użycia
+
 Najbardziej typowy schemat użycia to wybrać odpowiedni szablon wykresu, podmienić w nim dane, zmodyfikować podpis, próg ukrywania etykiet i wielkość czcionek adekwatnie do swoich potrzeb.
 
 ```{r}
@@ -92,3 +94,60 @@ noweDane <- daneDyplomyPlec # podstawiam tu te same dane, ale w realnym użyciu 
   zmien_prog_pokazywania_etykiet(hideBelow = 0.04) |> # zmiana progu ukrywania etykiet
   zmien_rok_w_podpisie(2024) # zmiana roku w podpisie
 ```
+
+## Kartogramy
+
+Nieco innego podejścia wymaga przygotowanie kartogramu - choć z punktu widzenia użytkownika pakietu mapa stanowi jego element stały, na który tylko nanosi się dane, to z technicznego punktu widzenia mapa jest częścią danych przekazywanych do wywołania funkcji rysującej wykres. W związku z tym konieczne jest połączenie danych z mapą przy pomocy funkcji `zlacz_z_mapa()`:
+
+```{r}
+library(LOSYkolory)
+library(ggplot2)
+
+str(daneMigracjeWoj) # szablon oczekuje danych o takiej strukturze
+noweDane <- daneMigracjeWoj # podstawiam tu te same dane, ale w realnym użyciu będą inne
+
+(wykresMigracjeWoj %+% zlacz_z_mapa(noweDane)) |> # podmiana danych
+  zmien_wielkosc_czcionek(baseSize = 20) |> # zmiana wielkości czcionki
+  zmien_rok_w_podpisie(2024) # zmiana roku w podpisie
+```
+
+Warto zwrócić uwagę, że kartogram obsługuje również pokazanie wartości wskaźnika dla *nieznanego województwa* (np. tu: ponieważ miejsce zamieszkania ustalane jest na podstawie danych ZUS, nie da się go określić dla osób, za które nie były odprowadzane składki). W tym celu można w danych przekazywanych do wykresu użyć rekordu, dla którego kolumna `nazwa_woj` przyjmuje wartość `NA_integer_`, por. ostatni wiersz w obiekcie `daneMigracjeWoj`:
+
+```{r}
+daneMigracjeWoj
+```
+
+Jeśli jednak dane przekazane do funkcji `zlacz_z_mapa()` nie będą zawierać takiego rekordu, nie zostanie on narysowany:
+
+```{r}
+wykresMigracjeWoj %+% zlacz_z_mapa(noweDane[!is.na(noweDane$teryt_woj), ])
+```
+
+## Stare wersje palet
+
+W pakiecie jako opcja domyślna zaimplementowane zostało użycie nowych palet kolorów, opracowanych w 2025 r. Możliwa jest jednak zmiana na palety stosowane we wcześniej opracowanych raportach (z małymi odstępstwami - p. niżej). W tym celu należy wykorzystać szablony wykresów z dodanym na końcu przyrostkiem *Old*:
+
+-   `wykresBezrobocieOkresGrupaOdnOld`,
+-   `wykresBezrobocieOld`,
+-   `wykresBezrobociePlecOld`,
+-   `wykresBezrobocieZawodOld`,
+-   `wykresDyplomyPlecOld`,
+-   `wykresDyplomyZawodOld`,
+-   `wykresFormyZatrudnGrupaOdnOld`,
+-   `wykresKontMlodocPracEduGrupaOdnOld`,
+-   `wykresKontMlodocPracNeduGrupaOdnOld`,
+-   `wykresKontynuacjeDyscyplinyPlecOld`,
+-   `wykresKontynuacjeDziedzinyPlecOld`,
+-   `wykresKontynuacjeTypSzkOld`,
+-   `wykresKontynuacjeTypSzkPlecOld`,
+-   `wykresKontynuacjeTypSzkZawodOld`,
+-   `wykresMaturyPlecOld`,
+-   `wykresMaturyZawodOld`,
+-   `wykresPlecOld` - wykres wykorzystuje tę samą paletę dla płci, co inne (*stare*) wykresy opisujące płeć kolorem, co stanowi odstępstwo od palety wykorzystywanej wcześniej w raportach,
+-   `wykresPracaOkresGrupaOdnOld`,
+-   `wykresPrzychodyGrupaOdnOld`,
+-   `wykresStatusyGrupaOdnOld`,
+-   `wykresStatusyOld`,
+-   `wykresStatusyPlecOld`,
+-   `wykresStatusyZawodOld`,
+-   `wykresTypySzkolOld`.

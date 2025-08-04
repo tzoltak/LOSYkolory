@@ -16,28 +16,29 @@ poziomie województw (procent absolwentów mieszkających w poszczególnych
 województwach).
 }
 \examples{
-\dontrun{
 wykresMigracjeWoj
 
 # kod tworzący ten wykres:
 library(ggplot2)
-ggplot(merge(sfWoj, daneMigracjeWoj, all = TRUE),
-       aes(fill = pct, colour = pct,
-           label = percent_pl(pct, digits = 1))) +
+ggplot(zlacz_z_mapa(daneMigracjeWoj),
+      aes(fill = pct, colour = pct,
+         label = percent_pl(pct, digits = 1))) +
   geom_sf() +
-  geom_sf_text(size = 5) +
+  geom_sf_text(size = 5,
+               fun.geometry = st_point_on_surface_sw) +
   geom_sf_text(aes(label = label), colour = "black", size = 5,
                hjust = "left", vjust = "bottom",
                data = function(x) {
                  x <- x[x$nazwa_woj == "nieznane", ]
-                 x$label <- rep("Nieznane     \nwojewództwo", nrow(x))
-                 if (nrow(x) > 0L) {
-                   x$geometryProperty <-
-                     sf::st_sfc(sf::st_point(c(14.6, 49.7)),
-                                crs = attributes(x$geometryProperty)$crs)
-                 }
-                 return(x)
-               }) +
+                x$label <- rep("Nieznane     \nwojewództwo", nrow(x))
+                if (nrow(x) > 0L) {
+                  x$geometryProperty <-
+                    sf::st_sfc(sf::st_point(c(14.6, 49.7)),
+                               crs = attributes(x$geometryProperty)$crs)
+                }
+                return(x)
+              },
+              fun.geometry = st_point_on_surface_sw) +
   scale_x_continuous(NULL, labels = function(x) {return(rep("", length(x)))},
                      expand = c(0, 0)) +
   scale_y_continuous(NULL, labels = function(x) {return(rep("", length(x)))},
@@ -48,9 +49,8 @@ ggplot(merge(sfWoj, daneMigracjeWoj, all = TRUE),
   theme_losy(axis_ticks = "none") +
   dodaj_rok_w_podpisie(rok = 3254)
 }
-}
 \seealso{
 \link{daneMigracjeWoj}, \code{\link[=percent_pl]{percent_pl()}}, \code{\link[=theme_losy]{theme_losy()}},
-\link{scale_colour_gradient_fg}
+\link{scale_colour_gradient_fg}, \code{\link[=st_point_on_surface_sw]{st_point_on_surface_sw()}}
 }
 \keyword{datasets}

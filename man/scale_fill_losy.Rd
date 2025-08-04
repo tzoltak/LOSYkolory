@@ -9,6 +9,7 @@ scale_fill_losy(
   ...,
   type = eval(formals(LOSYkolory::palette_losy)$type),
   unname = FALSE,
+  variantOld = FALSE,
   aesthetics = "fill"
 )
 }
@@ -28,6 +29,9 @@ nazwy (opisujące, jakiej wartości ma odpowiadać dany kolor)?
 w przypadku raportów szkolnych, gdy kolorem oznaczana jest dana szkoła
 w odróżnieniu od jej \emph{grupy odniesienia}, p. \link{wykresBezrobocieOkresGrupaOdn}
 i \link{wykresPrzychodyGrupaOdn})}
+
+\item{variantOld}{wartość logiczna - czy zwrócić palety używane w raportach
+do 2024 r.?}
 
 \item{aesthetics}{The names of the aesthetics that this scale works with.}
 }

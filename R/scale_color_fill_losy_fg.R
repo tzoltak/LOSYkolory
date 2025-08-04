@@ -34,13 +34,15 @@
 scale_color_losy_fg <- function(name = waiver(), ...,
                                 type = eval(formals(LOSYkolory::palette_losy)$type),
                                 fgToChoose = c("white", "black"), wcag = "3",
-                                unname = FALSE, aesthetics = "colour") {
+                                unname = FALSE, variantOld = FALSE,
+                                aesthetics = "colour") {
   type <- match.arg(type, several.ok = FALSE)
   discrete_scale(aesthetics, name = name,
                  palette = create_palette_losy_fg_fun(type = type,
                                                       fgToChoose = fgToChoose,
                                                       wcag = wcag,
-                                                      unname = unname),
+                                                      unname = unname,
+                                                      variantOld = variantOld),
                  ...)
 }
 #' @rdname scale_color_losy_fg
@@ -48,10 +50,12 @@ scale_color_losy_fg <- function(name = waiver(), ...,
 scale_colour_losy_fg <- function(name = waiver(), ...,
                                  type = eval(formals(LOSYkolory::palette_losy)$type),
                                  fgToChoose = c("white", "black"), wcag = "3",
-                                 unname = FALSE, aesthetics = "colour") {
+                                 unname = FALSE, variantOld = FALSE,
+                                 aesthetics = "colour") {
   return(scale_color_losy_fg(name = name, ..., type = type,
                              fgToChoose = fgToChoose, wcag = wcag,
-                             unname = unname, aesthetics = aesthetics))
+                             unname = unname, variantOld = variantOld,
+                             aesthetics = aesthetics))
 }
 #' @title Wybor kontrastowego koloru
 #' @description
@@ -68,13 +72,15 @@ scale_colour_losy_fg <- function(name = waiver(), ...,
 scale_fill_losy_fg <- function(name = waiver(), ...,
                                type = eval(formals(LOSYkolory::palette_losy)$type),
                                fgToChoose = c("white", "black"), wcag = "3",
-                               unname = FALSE, aesthetics = "fill") {
+                               unname = FALSE, variantOld = FALSE,
+                               aesthetics = "fill") {
   type <- match.arg(type, several.ok = FALSE)
   discrete_scale(aesthetics, name = name,
                  palette = create_palette_losy_fg_fun(type = type,
                                                       fgToChoose = fgToChoose,
                                                       wcag = wcag,
-                                                      unname = unname),
+                                                      unname = unname,
+                                                      variantOld = variantOld),
                  ...)
 }
 #' @title Wybor kontrastowego koloru

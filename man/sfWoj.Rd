@@ -20,6 +20,6 @@ Obiekt klasy \emph{sf} zawierający geometrie do rysowania kartogramów
 na poziomie województw.
 }
 \seealso{
-\link{daneMigracjeWoj}, \link{wykresMigracjeWoj}
+\link{daneMigracjeWoj}, \code{\link[=zlacz_z_mapa]{zlacz_z_mapa()}}, \link{wykresMigracjeWoj}
 }
 \keyword{datasets}

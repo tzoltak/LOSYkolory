@@ -4,7 +4,13 @@
 \alias{create_palette_losy_fg_fun}
 \title{Skale kolorow}
 \usage{
-create_palette_losy_fg_fun(type, fgToChoose, wcag = "3", unname = FALSE)
+create_palette_losy_fg_fun(
+  type,
+  fgToChoose,
+  wcag = "3",
+  unname = FALSE,
+  variantOld = FALSE
+)
 }
 \arguments{
 \item{type}{ciąg znaków - typ skali}
@@ -22,6 +28,9 @@ nazwy (opisujące, jakiej wartości ma odpowiadać dany kolor)?
 w przypadku raportów szkolnych, gdy kolorem oznaczana jest dana szkoła
 w odróżnieniu od jej \emph{grupy odniesienia}, p. \link{wykresBezrobocieOkresGrupaOdn}
 i \link{wykresPrzychodyGrupaOdn})}
+
+\item{variantOld}{wartość logiczna - czy zwrócić palety używane w raportach
+do 2024 r.?}
 }
 \value{
 Funkcja zwracająca paletę kolorów (przyjmująca jako parametr liczbę

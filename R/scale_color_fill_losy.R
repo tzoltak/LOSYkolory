@@ -11,18 +11,21 @@
 #' @export
 scale_color_losy <- function(name = waiver(), ...,
                              type = eval(formals(LOSYkolory::palette_losy)$type),
-                             unname = FALSE, aesthetics = "colour") {
+                             unname = FALSE, variantOld = FALSE,
+                             aesthetics = "colour") {
   type <- match.arg(type, several.ok = FALSE)
   discrete_scale(aesthetics, name = name,
-                 palette = create_palette_losy_fun(type, unname = unname), ...)
+                 palette = create_palette_losy_fun(type, unname = unname,
+                                                   variantOld = variantOld), ...)
 }
 #' @rdname scale_color_losy
 #' @export
 scale_colour_losy <- function(name = waiver(), ...,
                               type = eval(formals(LOSYkolory::palette_losy)$type),
-                              unname = FALSE, aesthetics = "colour") {
+                              unname = FALSE, variantOld = FALSE,
+                              aesthetics = "colour") {
   return(scale_color_losy(name = name, ..., type = type, unname = unname,
-                          aesthetics = aesthetics))
+                          variantOld = variantOld, aesthetics = aesthetics))
 }
 #' @title Skale kolorow
 #' @description
@@ -56,9 +59,11 @@ scale_colour_losy <- function(name = waiver(), ...,
 #' @export
 scale_fill_losy <- function(name = waiver(), ...,
                             type = eval(formals(LOSYkolory::palette_losy)$type),
-                            unname = FALSE, aesthetics = "fill") {
+                            unname = FALSE, variantOld = FALSE,
+                            aesthetics = "fill") {
   type <- match.arg(type, several.ok = FALSE)
   discrete_scale(aesthetics, name = name,
-                 palette = create_palette_losy_fun(type, unname = unname),
+                 palette = create_palette_losy_fun(type, unname = unname,
+                                                   variantOld = variantOld),
                  ...)
 }

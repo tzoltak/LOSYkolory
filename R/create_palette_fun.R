@@ -8,8 +8,8 @@
 #' kolorów w zwracanej palecie, która jednak będzie działać tylko dla jednej
 #' liczby kolorów - kompatybilnej z liczbą kolorów w skali kolorów podanego
 #' typu, zwracanej przez [palette_losy()]).
-create_palette_losy_fun <- function(type, unname = FALSE) {
-  paleta <- palette_losy(type = type, unname = unname)
+create_palette_losy_fun <- function(type, unname = FALSE, variantOld = FALSE) {
+  paleta <- palette_losy(type = type, unname = unname, variantOld = variantOld)
   fun <- function(n) {
     return(paleta)
   }
@@ -29,8 +29,10 @@ create_palette_losy_fun <- function(type, unname = FALSE) {
 #' kolorów w zwracanej palecie, która jednak będzie działać tylko dla jednej
 #' liczby kolorów - kompatybilnej z liczbą kolorów w skali kolorów podanego
 #' typu, zwracanej przez [palette_losy()]).
-create_palette_losy_fg_fun <- function(type, fgToChoose, wcag = "3", unname = FALSE) {
-  paleta <- pick_more_contrasting(palette_losy(type = type, unname = unname),
+create_palette_losy_fg_fun <- function(type, fgToChoose, wcag = "3",
+                                       unname = FALSE, variantOld = FALSE) {
+  paleta <- pick_more_contrasting(palette_losy(type = type, unname = unname,
+                                               variantOld = variantOld),
                                   fgToChoose, wcag)
   fun <- function(n) {
     return(paleta)

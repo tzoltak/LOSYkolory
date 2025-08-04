@@ -19,6 +19,21 @@ wykresDyplomyPlec
 
 # kod tworzący ten wykres:
 library(ggplot2)
+ggplot(daneDyplomyPlec,
+       aes(pct, plec, fill = dyplom,
+           label = percent_pl(pct, digits = 0, hideBelow = 0.05))) +
+  geom_col(position = position_stack(reverse = TRUE)) +
+  geom_text(aes(colour = dyplom),
+            position = position_stack(reverse = TRUE, vjust = 0.5),
+            size = 7) +
+  scale_x_continuous(NULL, labels = label_percent_pl(),
+                     expand = c(0, 0, 0, 0.01)) +
+  scale_y_discrete(NULL, expand = c(0, 0)) +
+  scale_fill_losy(NULL, type = "dyplomyZaw",
+                  guide = guide_legend(ncol = 2)) +
+  scale_colour_losy_fg(NULL, type = "dyplomyZaw", guide = "none") +
+  theme_losy() +
+  dodaj_rok_w_podpisie(rok = 3254)
 }
 \seealso{
 \link{daneDyplomyPlec}, \code{\link[=percent_pl]{percent_pl()}}, \code{\link[=scale_fill_losy]{scale_fill_losy()}},
