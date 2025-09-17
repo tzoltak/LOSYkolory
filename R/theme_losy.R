@@ -9,6 +9,14 @@
 #' @param base_rect_size opcjonalnie liczba, p. [ggplot2::theme_minimal()]
 #' @param axis_ticks opcjonalnie ciąg znaków wskazujący, na której osi/osiach
 #' wykresu mają zostać narysowane *pręciki* przy podanych wartościach
+#' @details
+#' Dla wersji pakietu *ggplot2* od 4.0.0 wzwyż argument `base_family` może mieć
+#' wpływ również na rodzinę czcionek *geometrii* wykresu. W tej wersji *ggplot2*
+#' wprowadzono bowiem mechanizm przechowywania w *temacie* wykresu domyślnych
+#' wartości *estetyk* - są one modyfikowane wywołaniem `theme_losy()`,
+#' a jednocześnie propagują się na wszystkie *geometrie* danego wykresu,
+#' w których wartość odpowiedniej *estetyki* nie została podana explicite
+#' (przez ustalenie w zadanej wartości lub przypisanie mapowaniaprzypisanie mapowania).
 #' @examples
 #' library(ggplot2)
 #' p <- ggplot(daneTypySzkol,
@@ -50,7 +58,7 @@ theme_losy <- function(base_size = 18, base_family = "",
                        axis_ticks = c("x", "y", "xy", "none")) {
   stopifnot(is.character(base_family), length(base_family) == 1L,
             !anyNA(base_family))
-  if (!(base_family %in% fonts()) & base_family != "") {
+  if (!(base_family %in% c(fonts(), "sans", "serif", "mono")) & base_family != "") {
     message("Czcionki z rodziny '", base_family,
             "' nie są obecnie dostępne w R. Domyślnie R udostępnia tylko podstawowy zestaw czcionek, można go jednak rozszerzyć, importując czcionki zarejestrowane w Twoim systemie operacyjnym, co powinno rozwiązać ten problem.\n",
             "Aby przeprowadzić taki import wywołaj w konsoli polecenia:\n\n",

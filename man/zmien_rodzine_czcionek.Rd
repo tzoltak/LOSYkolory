@@ -29,8 +29,18 @@ prezentowanych daną \emph{geometrią}.
 \details{
 Jeśli dany wykres nie ma jeszcze przypisanego żadnego \emph{tematu}, a jako
 argument \code{family} podano brak danych, zostanie użyta rodzina czcionek
-\emph{tematu} zwróconego przez \code{\link[ggplot2:theme_get]{ggplot2::theme_get()}} (choć skądinąd może to być
+\emph{tematu} zwróconego przez \code{\link[ggplot2:get_theme]{ggplot2::theme_get()}} (choć skądinąd może to być
 pusty ciąg znaków).
+
+Wykresy utworzone przy pomocy pakietu \emph{ggplot2} począwszy od wersji 4.0.0
+mogą mieć też zmienianą rodzinę czcionek w \emph{geometriach} przy pomocy funkcji
+\code{\link[=theme_losy]{theme_losy()}} (lub \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}} itp.), korzystając
+z wprowadzonego w tej wersji mechanizmu zapisywania w \emph{temacie} wykresu
+domyślnych wartości \emph{estetyk} geometrii - użycie \code{\link[=theme_losy]{theme_losy()}} (itp.)
+z podanym argumentem \code{base_family} zmodyfikuje bowiem taką domyślną wartość
+\emph{estetyki}, która będzie używana przez wszystkie \emph{geometrie} danego wykresu,
+w których wartość \emph{estetyki} \code{family} nie została podana explicite (przez
+ustalenie w zadanej wartości lub przypisanie mapowania).
 }
 \examples{
 library(ggplot2)
@@ -59,5 +69,5 @@ zmien_rodzine_czcionek(ps, "serif")
 }
 \seealso{
 \code{\link[=zmien_wielkosc_czcionek]{zmien_wielkosc_czcionek()}}, \code{\link[=zmien_wielkosc_etykiet]{zmien_wielkosc_etykiet()}},
-\code{\link[=zmien_prog_pokazywania_etykiet]{zmien_prog_pokazywania_etykiet()}}
+\code{\link[=zmien_prog_pokazywania_etykiet]{zmien_prog_pokazywania_etykiet()}} \code{\link[=theme_losy]{theme_losy()}}
 }

@@ -9,7 +9,7 @@ zlacz_z_mapa(dane, sf = "sfWoj", allSf = FALSE)
 \arguments{
 \item{dane}{ramka danych z danymi do połączenia; co do zasady powinna
 zawierać kolumny \code{teryt_woj} (TERYT województwa w formacie 1/2-cyfrowym) lub
-\code{nazwa_woj} (ciągi znajów z nazwami województw)}
+\code{nazwa_woj} (ciągi znaków z nazwami województw)}
 
 \item{sf}{opcjonalnie ciąg znaków z nazwą obiektu \link[sf:sf]{sf::sf}, z którym dane
 mają zostać połączone - obecnie jedyną akceptowaną wartością jest "sfWoj"}
@@ -30,7 +30,7 @@ narysowania kartogramu.
 Obiekt \link{sfWoj} zawiera również rekord opisujący \emph{nieznane} województwo - jest
 on opisywany przez wartość kolumny \code{taryt_woj} równą \code{NA_integer_} i wartość
 kolumny \code{nazwa_woj} równą \code{"nieznane"}. Można w ten sposób zwizualizować na
-kartogramie rówież wartość wskaźnika odnoszącą się do tych absolwentów, dla
+kartogramie również wartość wskaźnika odnoszącą się do tych absolwentów, dla
 których nie jest znana ich lokalizacja (miejsce zamieszkania, studiowania
 itp.).
 }

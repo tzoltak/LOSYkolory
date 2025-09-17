@@ -9,7 +9,7 @@ Ramka danych z 8 wierszami i 3 kolumnami:
 \itemize{
 \item{\code{grupa} - czynnik o wartościach \emph{Państwa szkoła} i \emph{Pozostałe [typ szkoły] z [JST stanowiąca grupę odniesienia]},}
 \item{\code{forma_zatrudn} - czynnik o poziomach \emph{Tylko samozatrudnieni}, \emph{Tylko zatrudnieni na podstawie innej formy umowy niż umowa o pracę}, \emph{Zatrudnieni na podstawie więcej niż jednej formy umowy}, \emph{Zatrudnieni tylko na podstawie umowy o pracę},}
-\item{\code{pct} - częstośc danej formy zatrudnienia w ramach danej grupy.}
+\item{\code{pct} - częstość danej formy zatrudnienia w ramach danej grupy.}
 }
 }
 \usage{

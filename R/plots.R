@@ -594,7 +594,7 @@
 "wykresStatusyPlec"
 #' @title Przykladowe wykresy
 #' @description Wykres z przykładowym zestawieniem statusów
-#' edukacyjno-zawodowych ze względu na (najczęściej wybierane) zawody wyuoczne.
+#' edukacyjno-zawodowych ze względu na (najczęściej wybierane) zawody wyuczone.
 #' @format Wykres *[ggplot2][ggplot2::ggplot]*.
 #' @seealso [daneStatusyZawod], [percent_pl()], [scale_fill_losy()],
 #' [scale_colour_losy_fg()], [theme_losy()]

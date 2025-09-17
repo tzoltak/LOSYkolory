@@ -5,7 +5,7 @@
 \alias{zmien_wielkosc_etykiet}
 \title{Modyfikowanie elementow wykresu}
 \usage{
-zmien_wielkosc_czcionek(g, baseSize = NULL, rescale = NULL, textGeoms = TRUE)
+zmien_wielkosc_czcionek(g, baseSize = NULL, rescale = NULL, geoms = TRUE)
 
 zmien_wielkosc_etykiet(g, size = NULL, rescale = NULL)
 }
@@ -22,8 +22,10 @@ wszystkich czcionek w elementach tekstowych \emph{\link[ggplot2:theme]{tematu}}
 wykresu \emph{ggplot2} oraz/albo wielkość czcionek wszystkich \emph{geometrii}
 tekstowych wykresu}
 
-\item{textGeoms}{wartość logiczna (domyślnie \code{TRUE}), wskazująca, czy
-zmieniona ma być również wielkość \emph{geometrii} tekstowych}
+\item{geoms}{wartość logiczna (domyślnie \code{TRUE}), wskazująca, czy
+zmieniona ma być również wielkość czcionek w \emph{geometriach} (zarówno
+zdefiniowanych na wykresie, jak i w domyślnej \emph{geometrii} w \emph{temacie} danego
+wykresu)}
 
 \item{size}{opcjonalnie liczba - wielkość czcionki (w mm), jaka zostanie
 nadana wszystkim \emph{geometriom} tekstowym wykresu}
@@ -37,11 +39,11 @@ Funkcje zmieniające wielkość elementów tekstowych na wykresie
 \itemize{
 \item \code{zmien_wielkosc_czcionek()} pozwala zmienić jednocześnie wielkość
 elementów tekstowych \emph{tematu} wykresu (etykiety i wartości osi, elementy
-legendy, tytuły itp.) oraz wielkość \emph{geometrii} tekstowych,
+legendy, tytuły itp.) oraz wielkość \emph{geometrii} (tekstowych),
 przy czym zmianę wielkości tych drugich można zablokować korzystając
-z argumentu \code{textGeoms=FALSE},
+z argumentu \code{geoms=FALSE},
 \item \code{zmien_wielkosc_etykiet()} pozwala zmienić wyłącznie wielkość \emph{geometrii}
-tekstowych, jednocześnie zmieniając ustawienia rodziny czcionek.
+(tekstowych).
 }
 
 Jako \emph{geometrie} tekstowe traktowane są te, które zostały utworzone za pomocą
@@ -53,6 +55,12 @@ Wielkość \emph{geometrii} tekstowych zostanie zmieniona \strong{tylko wtedy}, 
 \strong{nie} jest \emph{mapowana} z danych (w wywołaniu \code{\link[ggplot2:aes]{ggplot2::aes()}} dla całego
 wykresu lub danej \emph{geometrii}), tzn. jest stała dla wszystkich jednostek
 prezentowanych daną \emph{geometrią}.
+
+Jeśli \code{geoms=TRUE}, za pośrednictwem zmian w \emph{temacie} wykresu
+**we wszystkich \emph{warstwach} ** zostaną też zmienione wartości wszystkich
+\emph{estetyk}, które mapują się na domyślną wartość \emph{estetyki} \code{fontsize}
+definiowaną w ramach elementu \code{geom} \emph{tematu} danego wykresu
+(por. \code{\link[ggplot2:aes_eval]{ggplot2::from_theme()}}).
 }
 \details{
 W wywołaniach funkcji można podać wartość tylko argumentu \code{rescale} albo
@@ -69,7 +77,7 @@ ustawiona w sposób absolutny, modyfikuje ją mnożąc przez wartość argumentu
 relatywnie, jej definicja zostaje pozostawiona bez zmian, gdyż zmiana
 wielkości zostanie na nią spropagowana automatycznie). Jeśli dany wykres nie
 miał jeszcze przypisanego żadnego \emph{tematu}, zostanie mu przypisany temat
-zwrócony przez \code{\link[ggplot2:theme_get]{ggplot2::theme_get()}}, a następnie dokonane zostaną
+zwrócony przez \code{\link[ggplot2:get_theme]{ggplot2::theme_get()}}, a następnie dokonane zostaną
 modyfikacje wielkości elementów tekstowych.
 }
 \examples{
@@ -83,9 +91,9 @@ p <- ggplot(daneTypySzkol,
 
 p
 zmien_wielkosc_czcionek(p, baseSize = 20)
-zmien_wielkosc_czcionek(p, baseSize = 20, textGeoms = FALSE)
+zmien_wielkosc_czcionek(p, baseSize = 20, geoms = FALSE)
 zmien_wielkosc_czcionek(p, rescale = 1.5)
-zmien_wielkosc_czcionek(p, rescale = 1.5, textGeoms = FALSE)
+zmien_wielkosc_czcionek(p, rescale = 1.5, geoms = FALSE)
 # lub w pipie:
 p |> zmien_wielkosc_czcionek(baseSize = 20)
 

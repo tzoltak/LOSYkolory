@@ -5,7 +5,7 @@
 #' narysowania kartogramu.
 #' @param dane ramka danych z danymi do połączenia; co do zasady powinna
 #' zawierać kolumny `teryt_woj` (TERYT województwa w formacie 1/2-cyfrowym) lub
-#' `nazwa_woj` (ciągi znajów z nazwami województw)
+#' `nazwa_woj` (ciągi znaków z nazwami województw)
 #' @param sf opcjonalnie ciąg znaków z nazwą obiektu [sf::sf], z którym dane
 #' mają zostać połączone - obecnie jedyną akceptowaną wartością jest "sfWoj"
 #' @param allSf opcjonalnie wartość logiczna - czy w połączonych danych mają
@@ -15,7 +15,7 @@
 #' Obiekt [sfWoj] zawiera również rekord opisujący *nieznane* województwo - jest
 #' on opisywany przez wartość kolumny `taryt_woj` równą `NA_integer_` i wartość
 #' kolumny `nazwa_woj` równą `"nieznane"`. Można w ten sposób zwizualizować na
-#' kartogramie rówież wartość wskaźnika odnoszącą się do tych absolwentów, dla
+#' kartogramie również wartość wskaźnika odnoszącą się do tych absolwentów, dla
 #' których nie jest znana ich lokalizacja (miejsce zamieszkania, studiowania
 #' itp.).
 #' @returns obiekt klasy [sf::sf]

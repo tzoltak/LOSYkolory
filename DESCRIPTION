@@ -1,7 +1,7 @@
 Package: LOSYkolory
 Type: Package
 Title: Skale kolorow wykorzystywane w systemie monitoringu karier absolwentow szkol ponadpodstawowych
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: c(
     person(
       "Tomasz", "Żółtak",
@@ -15,7 +15,7 @@ Depends:
 Imports:
   extrafont (>= 0.19),
   grDevices,
-  ggplot2 (>= 3.5.1),
+  ggplot2 (>= 4.0.0),
   scales,
   sf
 License: MIT + file LICENSE
@@ -25,4 +25,4 @@ LazyDataCompression: xz
 Language: pl
 Roxygen: list(markdown = TRUE)
 NeedsCompilation: no
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3

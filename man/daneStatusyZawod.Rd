@@ -17,7 +17,7 @@ daneStatusyZawod
 }
 \description{
 Przykładowe zestawienie statusów edukacyjno-zawodowych ze
-względu na (najczęściej wybierane) zawody wyuoczne.
+względu na (najczęściej wybierane) zawody wyuczone.
 }
 \seealso{
 \link{wykresStatusyZawod}

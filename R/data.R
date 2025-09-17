@@ -73,7 +73,7 @@
 #' \itemize{
 #'   \item{`grupa` - czynnik o wartościach *Państwa szkoła* i *Pozostałe \[typ szkoły] z \[JST stanowiąca grupę odniesienia]*,}
 #'   \item{`forma_zatrudn` - czynnik o poziomach *Tylko samozatrudnieni*, *Tylko zatrudnieni na podstawie innej formy umowy niż umowa o pracę*, *Zatrudnieni na podstawie więcej niż jednej formy umowy*, *Zatrudnieni tylko na podstawie umowy o pracę*,}
-#'   \item{`pct` - częstośc danej formy zatrudnienia w ramach danej grupy.}
+#'   \item{`pct` - częstość danej formy zatrudnienia w ramach danej grupy.}
 #' }
 #' @seealso [wykresFormyZatrudnGrupaOdn]
 "daneFormyZatrudnGrupaOdn"
@@ -85,7 +85,7 @@
 #' @format Ramka danych z 6 wierszami i 3 kolumnami:
 #' \itemize{
 #'   \item{`grupa` - czynnik o wartościach *Państwa szkoła* i *Pozostałe \[typ szkoły] z \[JST stanowiąca grupę odniesienia]*,}
-#'   \item{`kont_mlodoc_prac` - czynnik o wartościach *Uczący się, kontynuujący pracę u danego praodawcy na podstawie umowy o pracę*, *Uczący się, kontynuujący pracę u danego pracodawcy w formie innej niż umowa o pracę*, *Uczący się, niekontynuujący pracy u danego pracodawcy*,}
+#'   \item{`kont_mlodoc_prac` - czynnik o wartościach *Uczący się, kontynuujący pracę u danego pracodawcy na podstawie umowy o pracę*, *Uczący się, kontynuujący pracę u danego pracodawcy w formie innej niż umowa o pracę*, *Uczący się, niekontynuujący pracy u danego pracodawcy*,}
 #'   \item{`pct` - częstość danej sytuacji w ramach grupy.}
 #' }
 #' @seealso [wykresKontMlodocPracEduGrupaOdn]
@@ -98,7 +98,7 @@
 #' @format Ramka danych z 6 wierszami i 3 kolumnami:
 #' \itemize{
 #'   \item{`grupa` - czynnik o wartościach *Państwa szkoła* i *Pozostałe \[typ szkoły] z \[JST stanowiąca grupę odniesienia]*,}
-#'   \item{`kont_mlodoc_prac` - czynnik o wartościach *Nieuczący się, kontynuujący pracę u danego praodawcy na podstawie umowy o pracę*, *Nieuczący się, kontynuujący pracę u danego pracodawcy w formie innej niż umowa o pracę*, *Nieuczący się, niekontynuujący pracy u danego pracodawcy*,}
+#'   \item{`kont_mlodoc_prac` - czynnik o wartościach *Nieuczący się, kontynuujący pracę u danego pracodawcy na podstawie umowy o pracę*, *Nieuczący się, kontynuujący pracę u danego pracodawcy w formie innej niż umowa o pracę*, *Nieuczący się, niekontynuujący pracy u danego pracodawcy*,}
 #'   \item{`pct` - częstość danej sytuacji w ramach grupy.}
 #' }
 #' @seealso [wykresKontMlodocPracNeduGrupaOdn]
@@ -252,7 +252,7 @@
 "daneStatusyPlec"
 #' @title Przykladowe dane
 #' @description Przykładowe zestawienie statusów edukacyjno-zawodowych ze
-#' względu na (najczęściej wybierane) zawody wyuoczne.
+#' względu na (najczęściej wybierane) zawody wyuczone.
 #' @format Ramka danych z 50 wierszami i 3 kolumnami:
 #' \itemize{
 #'   \item{`nazwa_zaw` - czynnik z nazwami zawodów, kolejność poziomów którego odzwierciedla liczbę absolwentów w danym zawodzie,}

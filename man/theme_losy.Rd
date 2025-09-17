@@ -29,6 +29,15 @@ Nadaje wykresowi \emph{\link[ggplot2:ggtheme]{temat}} definiujący jego wygląd
 (ale nie \emph{układ}) odpowiedni do wykorzystania na potrzeby systemu monitoringu
 karier absolwentów szkół ponadpodstawowych.
 }
+\details{
+Dla wersji pakietu \emph{ggplot2} od 4.0.0 wzwyż argument \code{base_family} może mieć
+wpływ również na rodzinę czcionek \emph{geometrii} wykresu. W tej wersji \emph{ggplot2}
+wprowadzono bowiem mechanizm przechowywania w \emph{temacie} wykresu domyślnych
+wartości \emph{estetyk} - są one modyfikowane wywołaniem \code{theme_losy()},
+a jednocześnie propagują się na wszystkie \emph{geometrie} danego wykresu,
+w których wartość odpowiedniej \emph{estetyki} nie została podana explicite
+(przez ustalenie w zadanej wartości lub przypisanie mapowaniaprzypisanie mapowania).
+}
 \examples{
 library(ggplot2)
 p <- ggplot(daneTypySzkol,

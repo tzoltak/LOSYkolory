@@ -8,20 +8,8 @@
 #'
 #' # kod tworzący ten wykres:
 #' library(ggplot2)
-#' ggplot(daneBezrobocie,
-#'        aes(miesiac, bezrobocie, group = 1,
-#'            label = percent_pl(bezrobocie, digits = 0))) +
-#'   geom_line(linewidth = 0.7, colour = palette_losy("bezrobocie",
-#'                                                    variantOld = TRUE)["line"]) +
-#'   geom_point(size = 5, colour = palette_losy("bezrobocie",
-#'                                              variantOld = TRUE)["point"]) +
-#'   geom_text(size = 6, nudge_y = -0.005) +
-#'   scale_x_discrete("Miesiąc")  +
-#'   scale_y_continuous("Odsetek bezrobotnych absolwentów",
-#'                      labels = label_percent_pl(),
-#'                      limits = c(0, NA_real_), expand = c(0, 0, 0.05, 0)) +
-#'   theme_losy() +
-#'   dodaj_rok_w_podpisie(rok = 3254)
+#' # wykres jest tożsamy z tym w nowej skali kolorów
+#' wykresBezrobocie
 "wykresBezrobocieOld"
 #' @title Przykladowe wykresy - stare palety kolorow
 #' @description Wykres z przykładowym zestawieniem częstości bycia zarejestrowanym jako
@@ -359,7 +347,7 @@
 "wykresStatusyPlecOld"
 #' @title Przykladowe wykresy - stare palety kolorow
 #' @description Wykres z przykładowym zestawieniem statusów
-#' edukacyjno-zawodowych ze względu na (najczęściej wybierane) zawody wyuoczne.
+#' edukacyjno-zawodowych ze względu na (najczęściej wybierane) zawody wyuczone.
 #' @format Wykres *[ggplot2][ggplot2::ggplot]*.
 #' @seealso [wykresStatusyZawod]
 #' @examples

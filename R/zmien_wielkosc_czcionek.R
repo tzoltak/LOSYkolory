@@ -5,11 +5,11 @@
 #'
 #' -  `zmien_wielkosc_czcionek()` pozwala zmienić jednocześnie wielkość
 #'    elementów tekstowych *tematu* wykresu (etykiety i wartości osi, elementy
-#'    legendy, tytuły itp.) oraz wielkość *geometrii* tekstowych,
+#'    legendy, tytuły itp.) oraz wielkość *geometrii* (tekstowych),
 #'    przy czym zmianę wielkości tych drugich można zablokować korzystając
-#'    z argumentu `textGeoms=FALSE`,
+#'    z argumentu `geoms=FALSE`,
 #' -  `zmien_wielkosc_etykiet()` pozwala zmienić wyłącznie wielkość *geometrii*
-#'    tekstowych, jednocześnie zmieniając ustawienia rodziny czcionek.
+#'    (tekstowych).
 #'
 #' Jako *geometrie* tekstowe traktowane są te, które zostały utworzone za pomocą
 #' funkcji [ggplot2::geom_text()] lub [ggplot2::geom_label()]. W praktyce
@@ -20,6 +20,12 @@
 #' **nie** jest *mapowana* z danych (w wywołaniu [ggplot2::aes()] dla całego
 #' wykresu lub danej *geometrii*), tzn. jest stała dla wszystkich jednostek
 #' prezentowanych daną *geometrią*.
+#'
+#' Jeśli `geoms=TRUE`, za pośrednictwem zmian w *temacie* wykresu
+#' **we wszystkich *warstwach* ** zostaną też zmienione wartości wszystkich
+#' *estetyk*, które mapują się na domyślną wartość *estetyki* `fontsize`
+#' definiowaną w ramach elementu `geom` *tematu* danego wykresu
+#' (por. [ggplot2::from_theme()]).
 #' @param g wykres *[ggplot2][ggplot2::ggplot]*
 #' @param baseSize opcjonalnie liczba - bazowa wielkość czcionki - działa jak
 #' argument `base_size` w funkcjach pakietu *ggplot2* ustawiających
@@ -31,8 +37,10 @@
 #' wszystkich czcionek w elementach tekstowych *[tematu][ggplot2::theme()]*
 #' wykresu *ggplot2* oraz/albo wielkość czcionek wszystkich *geometrii*
 #' tekstowych wykresu
-#' @param textGeoms wartość logiczna (domyślnie `TRUE`), wskazująca, czy
-#' zmieniona ma być również wielkość *geometrii* tekstowych
+#' @param geoms wartość logiczna (domyślnie `TRUE`), wskazująca, czy
+#' zmieniona ma być również wielkość czcionek w *geometriach* (zarówno
+#' zdefiniowanych na wykresie, jak i w domyślnej *geometrii* w *temacie* danego
+#' wykresu)
 #' @details
 #' W wywołaniach funkcji można podać wartość tylko argumentu `rescale` albo
 #' tylko argumentu `baseSize`/`size`.
@@ -63,9 +71,9 @@
 #'
 #' p
 #' zmien_wielkosc_czcionek(p, baseSize = 20)
-#' zmien_wielkosc_czcionek(p, baseSize = 20, textGeoms = FALSE)
+#' zmien_wielkosc_czcionek(p, baseSize = 20, geoms = FALSE)
 #' zmien_wielkosc_czcionek(p, rescale = 1.5)
-#' zmien_wielkosc_czcionek(p, rescale = 1.5, textGeoms = FALSE)
+#' zmien_wielkosc_czcionek(p, rescale = 1.5, geoms = FALSE)
 #' # lub w pipie:
 #' p |> zmien_wielkosc_czcionek(baseSize = 20)
 #'
@@ -86,12 +94,12 @@
 #' @importFrom ggplot2 ggproto theme_get
 #' @export
 zmien_wielkosc_czcionek <- function(g, baseSize = NULL, rescale = NULL,
-                                    textGeoms = TRUE) {
+                                    geoms = TRUE) {
   stopifnot(inherits(g, "gg"),
             !is.null(baseSize) | !is.null(rescale),
             is.null(baseSize) | is.null(rescale),
-            is.logical(textGeoms), length(textGeoms) == 1L,
-            !anyNA(textGeoms))
+            is.logical(geoms), length(geoms) == 1L,
+            !anyNA(geoms))
   if (length(g$theme) == 0L) {
     g$theme <- theme_get()
   }
@@ -104,7 +112,9 @@ zmien_wielkosc_czcionek <- function(g, baseSize = NULL, rescale = NULL,
   stopifnot(is.numeric(rescale), length(rescale) == 1L, !anyNA(rescale),
             rescale > 0, is.finite(rescale))
 
-  themeTextElements <- sapply(g$theme, function(x) inherits(x, "element_text"))
+  themeTextElements <- sapply(g$theme,
+                              function(x) inherits(x, c("element_text",
+                                                        "ggplot2::element_text")))
   g$theme[themeTextElements] <-
     lapply(g$theme[themeTextElements],
            function(x) {
@@ -113,17 +123,27 @@ zmien_wielkosc_czcionek <- function(g, baseSize = NULL, rescale = NULL,
              }
              return(x)
            })
-  if (textGeoms) {
-    textGeoms <- sapply(g$layers,
+  if (geoms) {
+    if (inherits(g$theme$geom, "ggplot2::element_geom")) {
+      if (!is.null(g$theme$geom$fontsize) &
+          !inherits(g$theme$geom$fontsize, "rel")) {
+        g$theme$geom$fontsize <- g$theme$geom$fontsize*rescale
+      }
+    }
+    geoms <- sapply(g$layers,
                         function(x) inherits(x$geom, c("GeomText", "GeomLabel")))
-    g$layers[textGeoms] <-
-      lapply(g$layers[textGeoms],
-             function(x) {
+    g$layers[geoms] <-
+      lapply(g$layers[geoms],
+             function(x, theme) {
                if ("size" %in% names(x$computed_mapping)) {
                  return(x)
                }
                if (is.null(x$aes_params$size)) {
-                 size <- x$geom$default_aes$size*rescale
+                 if (is.language(x$geom$default_aes$size)) {
+                   return(x)
+                 } else {
+                   size <- x$geom$default_aes$size*rescale
+                 }
                } else {
                  size <- x$aes_params$size*rescale
                }
@@ -134,7 +154,7 @@ zmien_wielkosc_czcionek <- function(g, baseSize = NULL, rescale = NULL,
                x <- do.call("ggproto", as.list(x))
                x$aes_params$size <- size
                return(x)
-             })
+             }, theme = g$theme)
   }
   return(g)
 }
@@ -152,10 +172,16 @@ zmien_wielkosc_etykiet <- function(g, size = NULL, rescale = NULL) {
               rescale > 0, is.finite(rescale))
   }
 
-  textGeoms <- sapply(g$layers,
+  if (inherits(g$theme$geom, "ggplot2::element_geom")) {
+    if (!is.null(g$theme$geom$fontsize) &
+        !inherits(g$theme$geom$fontsize, "rel")) {
+      g$theme$geom$fontsize <- g$theme$geom$fontsize*rescale
+    }
+  }
+  geoms <- sapply(g$layers,
                       function(x) inherits(x$geom, c("GeomText", "GeomLabel")))
-  g$layers[textGeoms] <-
-    lapply(g$layers[textGeoms],
+  g$layers[geoms] <-
+    lapply(g$layers[geoms],
            function(x, size, rescale) {
              if (!("size" %in% names(x$computed_mapping))) {
                # to jest sztuczka pozwalając obejść bardzo specyficzne zachowania
@@ -166,7 +192,11 @@ zmien_wielkosc_etykiet <- function(g, size = NULL, rescale = NULL) {
                if (!("size" %in% names(x$computed_mapping))) {
                  if (is.null(size)) {
                    if (is.null(x$aes_params$size)) {
-                     size <- x$geom$default_aes$size*rescale
+                     if (is.language(x$geom$default_aes$size)) {
+                       return(x)
+                     } else {
+                       size <- x$geom$default_aes$size*rescale
+                     }
                    } else {
                      size <- x$aes_params$size*rescale
                    }

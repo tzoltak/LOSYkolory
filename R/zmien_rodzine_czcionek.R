@@ -17,9 +17,19 @@
 #' argument `family` podano brak danych, zostanie użyta rodzina czcionek
 #' *tematu* zwróconego przez [ggplot2::theme_get()] (choć skądinąd może to być
 #' pusty ciąg znaków).
+#'
+#' Wykresy utworzone przy pomocy pakietu *ggplot2* począwszy od wersji 4.0.0
+#' mogą mieć też zmienianą rodzinę czcionek w *geometriach* przy pomocy funkcji
+#' [theme_losy()] (lub [ggplot2::theme_minimal()] itp.), korzystając
+#' z wprowadzonego w tej wersji mechanizmu zapisywania w *temacie* wykresu
+#' domyślnych wartości *estetyk* geometrii - użycie [theme_losy()] (itp.)
+#' z podanym argumentem `base_family` zmodyfikuje bowiem taką domyślną wartość
+#' *estetyki*, która będzie używana przez wszystkie *geometrie* danego wykresu,
+#' w których wartość *estetyki* `family` nie została podana explicite (przez
+#' ustalenie w zadanej wartości lub przypisanie mapowania).
 #' @returns wykres *[ggplot2][ggplot2::ggplot]*
 #' @seealso [zmien_wielkosc_czcionek()], [zmien_wielkosc_etykiet()],
-#' [zmien_prog_pokazywania_etykiet()]
+#' [zmien_prog_pokazywania_etykiet()] [theme_losy()]
 #' @examples
 #' library(ggplot2)
 #' p <- ggplot(daneTypySzkol,
@@ -57,7 +67,7 @@ zmien_rodzine_czcionek <- function(g, family) {
       family <- theme_get()$text$family
     }
   }
-  if (!(family %in% fonts()) & family != "") {
+  if (!(family %in% c(fonts(), "sans", "serif", "mono")) & family != "") {
     message("Czcionki z rodziny '", family,
             "' nie są obecnie dostępne w R. Domyślnie R udostępnia tylko podstawowy zestaw czcionek, można go jednak rozszerzyć, importując czcionki zarejestrowane w Twoim systemie operacyjnym, co powinno rozwiązać ten problem.\n",
             "Aby przeprowadzić taki import wywołaj w konsoli polecenia:\n\n",

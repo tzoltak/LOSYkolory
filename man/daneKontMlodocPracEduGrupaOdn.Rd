@@ -8,7 +8,7 @@
 Ramka danych z 6 wierszami i 3 kolumnami:
 \itemize{
 \item{\code{grupa} - czynnik o wartościach \emph{Państwa szkoła} i \emph{Pozostałe [typ szkoły] z [JST stanowiąca grupę odniesienia]},}
-\item{\code{kont_mlodoc_prac} - czynnik o wartościach \emph{Uczący się, kontynuujący pracę u danego praodawcy na podstawie umowy o pracę}, \emph{Uczący się, kontynuujący pracę u danego pracodawcy w formie innej niż umowa o pracę}, \emph{Uczący się, niekontynuujący pracy u danego pracodawcy},}
+\item{\code{kont_mlodoc_prac} - czynnik o wartościach \emph{Uczący się, kontynuujący pracę u danego pracodawcy na podstawie umowy o pracę}, \emph{Uczący się, kontynuujący pracę u danego pracodawcy w formie innej niż umowa o pracę}, \emph{Uczący się, niekontynuujący pracy u danego pracodawcy},}
 \item{\code{pct} - częstość danej sytuacji w ramach grupy.}
 }
 }

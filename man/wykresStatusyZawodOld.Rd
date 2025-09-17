@@ -12,7 +12,7 @@ wykresStatusyZawodOld
 }
 \description{
 Wykres z przykładowym zestawieniem statusów
-edukacyjno-zawodowych ze względu na (najczęściej wybierane) zawody wyuoczne.
+edukacyjno-zawodowych ze względu na (najczęściej wybierane) zawody wyuczone.
 }
 \examples{
 wykresStatusyZawodOld

@@ -8,7 +8,7 @@
 Obiekt klasy \emph{sf}: ramka danych z 20 wierszami i 37 kolumnami. Do
 łączenia z wynikami mogą zostać łatwo wykorzystane kolumny:
 \itemize{
-\item{\code{teryt_woj} - kody (1/2-cyforwe) TERYT województw; zawiera też wiersz z brakiem danych, przeznaczony do opisania, że województo jest nieznane,}
+\item{\code{teryt_woj} - kody (1/2-cyforwe) TERYT województw; zawiera też wiersz z brakiem danych, przeznaczony do opisania, że województwo jest nieznane,}
 \item{\code{nazwa_woj} - nazwy województw (małymi literami); zawiera też dodatkowo województwo opisane jako \emph{nieznane}.}
 }
 }
