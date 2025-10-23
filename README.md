@@ -76,6 +76,11 @@ Dokładnie w ten sam sposób można przeprowadzić aktualizację pakietu do najn
     -   `compute_apca_contrast()`, `compute_screen_luminance()` - kontrast i luminacja godnie ze standardem WCAG 3.x,
     -   `compute_contrast_ratio()`, `compute_relative_luminance()` - kontrast i luminacja godnie ze standardem WCAG 2.x.
 
+6.  Funkcje pomocnicze ułatwiające podstawienie nowych danych do szablonów wykresów:
+
+    -   `podmien_dane_wykresu()` - pozwala podmienić dane wykresu obsługując również sytuację, gdy nie pasują one do wymaganej przez wykres struktury (co oznacza, że wykres nie może zostać narysowany, ale użytkownik może nie chcieć, aby wiązało się to z wygenerowaniem błędu),
+    -   `zlacz_z_mapa()`- przyłącza dane opisujące wskaźniki obliczone na poziomie województw do obiektu klasy [sf::sf] zawierającego mapę, która ma zostać użyta do narysowania kartogramu.
+
 # Użycie
 
 ## Typowy sposób użycia
@@ -93,6 +98,23 @@ noweDane <- daneDyplomyPlec # podstawiam tu te same dane, ale w realnym użyciu 
   zmien_wielkosc_czcionek(baseSize = 16) |> # zmiana wielkości czcionki
   zmien_prog_pokazywania_etykiet(hideBelow = 0.04) |> # zmiana progu ukrywania etykiet
   zmien_rok_w_podpisie(2024) # zmiana roku w podpisie
+```
+
+Jeśli pakiet wykorzystywany jest w ramach automatycznego genrowania raportów, kiedy dane niektórych wykresów mogą okazać się *zdegenrowane*, co oznacza, że dany wykres nie powinien zostać narysowany, ale nie powinno skutkować błędem, do podmiany danych należy użyć funkcji `podmien_dane_wykresu()`. W takim przypadku wszelkie modyfikacje szablonu muszą zostać dokonane przed podmianą danych:
+
+```{r}
+wykresDyplomyPlec |>
+  zmien_wielkosc_czcionek(baseSize = 16) |> # zmiana wielkości czcionki
+  zmien_prog_pokazywania_etykiet(hideBelow = 0.04) |> # zmiana progu ukrywania etykiet
+  zmien_rok_w_podpisie(2024) |> # zmiana roku w podpisie
+  podmien_dane_wykresu(noweDane) # podmiana danych
+# dane "zdegenerowane":
+brakDanych <- data.frame(uwaga = "W danych było mniej niż 10 absolwentów - wyniki analiz nie mogą zostać pokazane")
+wykresDyplomyPlec |>
+  zmien_wielkosc_czcionek(baseSize = 16) |> # zmiana wielkości czcionki
+  zmien_prog_pokazywania_etykiet(hideBelow = 0.04) |> # zmiana progu ukrywania etykiet
+  zmien_rok_w_podpisie(2024) |> # zmiana roku w podpisie
+  podmien_dane_wykresu(brakDanych) # podmiana danych
 ```
 
 ## Kartogramy
