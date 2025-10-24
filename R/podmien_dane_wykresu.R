@@ -47,12 +47,14 @@ podmien_dane_wykresu <- function(g, dane, jesliRozne = c("NULL", "porownanie",
 
   strukturyDanych <- vector(mode = "list", length = 1L + length(g@layers))
   if (is.data.frame(g@data)) {
-    strukturyDanych[[1]] <- g@data[vector(mode = "integer", length = 0L), ]
+    strukturyDanych[[1]] <- g@data[vector(mode = "integer", length = 0L), ,
+                                   drop = FALSE]
   }
   for (l in seq_along(g@layers)) {
     if (is.data.frame(g@layers[[l]]$data)) {
       strukturyDanych[[l + 1L]] <-
-        g@layers[[l]]$data[vector(mode = "integer", length = 0L), ]
+        g@layers[[l]]$data[vector(mode = "integer", length = 0L), ,
+                           drop = FALSE]
     }
   }
   strukturyDanych <- strukturyDanych[!sapply(strukturyDanych, is.null)]
@@ -61,7 +63,8 @@ podmien_dane_wykresu <- function(g, dane, jesliRozne = c("NULL", "porownanie",
                          all.equal, strukturyDanych[[1]]) %in% TRUE))
   porownanie <-
     porownaj_strukture_danych(strukturyDanych[[1]],
-                              dane[vector(mode = "integer", length = 0L), ])
+                              dane[vector(mode = "integer", length = 0L), ,
+                                   drop = FALSE])
   if (!(porownanie[1] %in% TRUE)) {
     if (jesliRozne == "stop") {
       stop("Przekazane dane mają inną strukturę, niż dane wewnątrz wykresu.")
@@ -71,7 +74,7 @@ podmien_dane_wykresu <- function(g, dane, jesliRozne = c("NULL", "porownanie",
       return(NULL)
     }
   } else {
-    g <- g %+% dane
+    g <- g + dane
   }
   return(g)
 }

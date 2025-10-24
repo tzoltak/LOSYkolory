@@ -94,7 +94,7 @@ library(ggplot2)
 str(daneDyplomyPlec) # szablon oczekuje danych o takiej strukturze
 noweDane <- daneDyplomyPlec # podstawiam tu te same dane, ale w realnym użyciu będą inne
 
-(wykresDyplomyPlec %+% noweDane) |> # podmiana danych
+(wykresDyplomyPlec + noweDane) |> # podmiana danych
   zmien_wielkosc_czcionek(baseSize = 16) |> # zmiana wielkości czcionki
   zmien_prog_pokazywania_etykiet(hideBelow = 0.04) |> # zmiana progu ukrywania etykiet
   zmien_rok_w_podpisie(2024) # zmiana roku w podpisie
@@ -128,7 +128,7 @@ library(ggplot2)
 str(daneMigracjeWoj) # szablon oczekuje danych o takiej strukturze
 noweDane <- daneMigracjeWoj # podstawiam tu te same dane, ale w realnym użyciu będą inne
 
-(wykresMigracjeWoj %+% zlacz_z_mapa(noweDane)) |> # podmiana danych
+(wykresMigracjeWoj + zlacz_z_mapa(noweDane)) |> # podmiana danych
   zmien_wielkosc_czcionek(baseSize = 20) |> # zmiana wielkości czcionki
   zmien_rok_w_podpisie(2024) # zmiana roku w podpisie
 ```
@@ -142,7 +142,7 @@ daneMigracjeWoj
 Jeśli jednak dane przekazane do funkcji `zlacz_z_mapa()` nie będą zawierać takiego rekordu, nie zostanie on narysowany:
 
 ```{r}
-wykresMigracjeWoj %+% zlacz_z_mapa(noweDane[!is.na(noweDane$teryt_woj), ])
+wykresMigracjeWoj + zlacz_z_mapa(noweDane[!is.na(noweDane$teryt_woj), ])
 ```
 
 ## Stare wersje palet

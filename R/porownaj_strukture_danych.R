@@ -38,11 +38,19 @@ porownaj_strukture_danych <- function(x, y) {
     "Obiekt `x` zawiera elementy (kolumny), które nie występują w obiekcie `y`." =
       !all(names(x) %in% names(y)),
     "W obiekcie `x` występują elementy (kolumny) będące wektorami liczbowymi lub logicznymi, które nie są wektorami liczbowymi lub logicznymi (lub w ogóle nie występują) w obiekcie `y`." =
-      !all(names(x)[sapply(x, is.numeric) | sapply(x, is.logical)] %in%
-             names(y)[sapply(y, is.numeric) | sapply(y, is.logical)]),
+      !all(tryCatch(names(x)[sapply(x, is.numeric) | sapply(x, is.logical)],
+                    error = function(e) {return(vector(mode = "character",
+                                                       length = 0L))}) %in%
+             tryCatch(names(y)[sapply(y, is.numeric) | sapply(y, is.logical)],
+                      error = function(e) {return(vector(mode = "character",
+                                                         length = 0L))})),
     "W obiekcie `x` występują elementy (kolumny) będące wektorami tekstowymi lub czynnikami, które nie są wektorami tekstowymi lub czynnikami (lub w ogóle nie występują) w obiekcie `y`." =
-      !all(names(x)[sapply(x, is.character) | sapply(x, is.factor)] %in%
-             names(y)[sapply(y, is.character) | sapply(y, is.factor)])
+      !all(tryCatch(names(x)[sapply(x, is.character) | sapply(x, is.factor)],
+                    error = function(e) {return(vector(mode = "character",
+                                                       length = 0L))}) %in%
+             tryCatch(names(y)[sapply(y, is.character) | sapply(y, is.factor)],
+                      error = function(e) {return(vector(mode = "character",
+                                                         length = 0L))}))
   )
   if (all(!porownania)) {
     return(TRUE)

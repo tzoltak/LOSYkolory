@@ -5,6 +5,10 @@
 -   `podmien_dane_wykresu()` pozwala podjąć próbę podmiany danych w (szablonie) wykresu, obsługując sytuację, kiedy taka podmiana się nie powiedzie.
 -   `porownaj_struktrue_danych()` porównuje strukturę dwóch obiektów, w umiarkowanie restrykcyjny sposób, adekwatny do określenia, czy (zapewne) da się jednego użyć zamiast drugoego jako źródło danych do narysowania tego samego wykresu (wykorzystywana wewnątrz `podmien_dane_wykresu()`).
 
+## Aktualizacje
+
+-   `palette_losy(type = "typySzkol")` zwraca kolory również dla wartości "Liceum ogólnokształcące dla młodzieży" i "Liceum ogólnokształcące dla dorosłych".
+
 # LOSYkolory 0.4.0 (17.09.2025)
 
 ## Aktualizacje
