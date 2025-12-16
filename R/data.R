@@ -214,6 +214,21 @@
 #' @seealso [wykresPracaOkresGrupaOdn]
 "danePracaOkresGrupaOdn"
 #' @title Przykladowe dane
+#' @description Przykładowe zestawienie częstości występowania poszczególnych
+#' ścieżek edukacyjno-zawodowych, definiowanych jako kombinacje statusu
+#' edukacyjno-zawodowego w trzech punktach czasu: w 6, 30 i 54 miesiące od
+#' ukończenia szkoły.
+#' @format Ramka danych z 375 wierszami i 5 kolumnami:
+#' \itemize{
+#'   \item{`idKombinacji` - unikalny identyfikator ścieżki (kombinacji statusów),}
+#'   \item{`okres` - czynnik o wartościach *12.2019*, *12.2021*, *12.2023*, identyfikujący punkt czasu,}
+#'   \item{`status` - czynnik o poziomach *Tylko nauka*, *Nauka i praca*, *Tylko praca*, *Bezrobocie*, *Brak danych o aktywności*,}
+#'   \item{`pct` - częstość występowania danej ścieżki (kombinacji statusów),}
+#'   \item{`pctSstatus` -  częstość występowania danego statusu w danym punkcie czasu.}
+#' }
+#' @seealso [wykresPrzeplywyStatusy]
+"danePrzeplywyStatusy"
+#' @title Przykladowe dane
 #' @description Przykładowe zestawienie parametrów rozkładu przychodów
 #' z pracy (etatowej) pomiędzy daną szkołą a odpowiadającą jej
 #' *grupą odniesienia* - do wykorzystania w raportach szkolnych.

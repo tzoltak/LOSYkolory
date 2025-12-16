@@ -290,6 +290,33 @@ wykresPracaOkresGrupaOdn <-
                   guide = guide_legend(nrow = 1)) +
   scale_colour_losy_fg(NULL, type = "okresPracy", guide = "none") +
   theme_losy(axis_ticks = "y")
+library(ggalluvial)
+wykresPrzeplywyStatusy <- ggplot(danePrzeplywyStatusy,
+       aes(x = okres, alluvium = idKombinacji,
+           y = pct,
+           stratum = status, fill = status)) +
+  geom_flow(reverse = FALSE) +
+  geom_stratum(reverse = FALSE) +
+  geom_text(aes(label = percent_pl(after_stat(prop),
+                                   digits = 1, hideBelow = 0.05),
+                colour = status),
+            size = 6, reverse = FALSE, stat = "stratum") +
+  stat_flow(aes(weight = pctStatus,
+                label = ifelse(after_stat(flow) == "from",
+                               percent_pl(after_stat(n), digits = 1),
+                               ""),
+                alpha = ifelse(after_stat(flow) == "from", 1, 0)),
+            size = 4,
+            reverse = FALSE, position = position_nudge(x = 0.25),
+            min.y = 0.01,
+            geom = "text") +
+  scale_x_discrete(NULL, expand = c(0, 0)) +
+  scale_y_continuous("Procent", labels = label_percent_pl(), expand = c(0, 0)) +
+  scale_fill_losy(NULL, type = "statusy") +
+  scale_colour_losy_fg(NULL, type = "statusy", guide = "none") +
+  scale_alpha_identity(guide = guide_none()) +
+  theme_losy() +
+  dodaj_rok_w_podpisie(rok = 2024)
 wykresPrzychodyGrupaOdn <-
   ggplot(danePrzychodyGrupaOdn,
          aes(grupa)) +

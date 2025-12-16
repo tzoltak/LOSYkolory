@@ -1,3 +1,16 @@
+# LOSYkolory 0.6.0 (16.12.2025)
+
+## Nowe szablony wykresów
+
+-   Szablony z wykresami przepływów opisujących zmiany statusów edukacyjno-zawodowych:
+
+    -   `wykresPrzeplywyStatusy` (w nowej palecie kolorów),
+    -   `wykresPrzeplywyStatusyOld` (w starej palecie kolorów).
+
+## Zmiany w paletach
+
+-   W palecie "dyplomyZaw" zmieniono kolor opisujący brak dyplomu i certyfikatu na #b1b1b1 (jaśniejszy, niż poprzedio używany #3c4250).
+
 # LOSYkolory 0.5.0 (24.10.2025)
 
 ## Nowe funkcje

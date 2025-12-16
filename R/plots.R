@@ -507,6 +507,49 @@
 #'   theme_losy(axis_ticks = "y")
 "wykresPracaOkresGrupaOdn"
 #' @title Przykladowe wykresy
+#' @description Wykres z przykładowym zestawieniem częstości występowania
+#' poszczególnych ścieżek edukacyjno-zawodowych, definiowanych jako kombinacje
+#' statusu edukacyjno-zawodowego w trzech punktach czasu: w 6, 30 i 54 miesiące
+#' od ukończenia szkoły.
+#' @format Wykres *[ggplot2][ggplot2::ggplot]*.
+#' @seealso [danePrzeplywyStatusy], [percent_pl()], [scale_fill_losy()],
+#' [scale_colour_losy_fg()], [theme_losy()], [ggalluvial::geom_flow()],
+#' [ggalluvial::geom_stratum()], [ggalluvial::stat_flow()]
+#' @examples
+#' library(ggalluvial)
+#' wykresPrzeplywyStatusy
+#'
+#' # kod tworzący ten wykres:
+#' library(ggplot2)
+#' ggplot(danePrzeplywyStatusy,
+#'        aes(x = okres, alluvium = idKombinacji,
+#'            y = pct,
+#'            stratum = status, fill = status)) +
+#'   geom_flow(reverse = FALSE) +
+#'   geom_stratum(reverse = FALSE) +
+#'   geom_text(aes(label = percent_pl(after_stat(prop),
+#'                                    digits = 1, hideBelow = 0.05),
+#'                 colour = status),
+#'             size = 6, reverse = FALSE, stat = "stratum") +
+#'   stat_flow(aes(weight = pctStatus,
+#'                 label = ifelse(after_stat(flow) == "from",
+#'                                percent_pl(after_stat(n), digits = 1),
+#'                                ""),
+#'                 alpha = ifelse(after_stat(flow) == "from", 1, 0)),
+#'             size = 4,
+#'             reverse = FALSE, position = position_nudge(x = 0.25),
+#'             min.y = 0.01,
+#'             geom = "text") +
+#'   scale_x_discrete(NULL, expand = c(0, 0)) +
+#'   scale_y_continuous("Procent", labels = label_percent_pl(), expand = c(0, 0)) +
+#'   scale_fill_losy(NULL, type = "statusy",
+#'                   guide = guide_legend(ncol = 2)) +
+#'   scale_colour_losy_fg(NULL, type = "statusy", guide = "none") +
+#'   scale_alpha_identity(guide = guide_none()) +
+#'   theme_losy() +
+#'   dodaj_rok_w_podpisie(rok = 2024)
+"wykresPrzeplywyStatusy"
+#' @title Przykladowe wykresy
 #' @description Wykres z przykładowym zestawieniem parametrów rozkładu
 #' przychodów z pracy (etatowej) pomiędzy daną szkołą a odpowiadającą jej
 #' *grupą odniesienia* - do wykorzystania w raportach szkolnych.

@@ -110,6 +110,13 @@ wykresPracaOkresGrupaOdnOld <-
                                      guide = guide_legend(nrow = 1)) +
                      scale_colour_losy_fg(NULL, type = "okresPracy",
                                           variantOld = TRUE, guide = "none"))
+library(ggalluvial)
+wykresPrzeplywyStatusyOld <-
+  suppressMessages(wykresPrzeplywyStatusy +
+                     scale_fill_losy(NULL, type = "statusy",
+                                     variantOld = TRUE) +
+                     scale_colour_losy_fg(NULL, type = "statusy",
+                                          variantOld = TRUE, guide = "none"))
 wykresPrzychodyGrupaOdnOld <-
   suppressMessages(wykresPrzychodyGrupaOdn +
                      scale_fill_losy(NULL, type = "grupaOdn", unname = TRUE,
@@ -145,5 +152,5 @@ wykresTypySzkolOld <-
                      scale_colour_losy_fg(NULL, type = "typySzkol",
                                           variantOld = TRUE, guide = "none"))
 
-save(list = ls(), file = "data/plotsOld.RData", compress = "xz")
+save(list = grepv("Old$", ls()), file = "data/plotsOld.RData", compress = "xz")
 rm(list = ls())

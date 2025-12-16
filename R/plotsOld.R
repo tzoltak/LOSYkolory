@@ -298,6 +298,25 @@
 #'                    scale_colour_losy_fg(NULL, type = "okresPracy",
 #'                                         variantOld = TRUE, guide = "none"))
 "wykresPracaOkresGrupaOdnOld"
+#' @title Przykladowe wykresy
+#' @description Wykres z przykładowym zestawieniem częstości występowania
+#' poszczególnych ścieżek edukacyjno-zawodowych, definiowanych jako kombinacje
+#' statusu edukacyjno-zawodowego w trzech punktach czasu: w 6, 30 i 54 miesiące
+#' od ukończenia szkoły.
+#' @format Wykres *[ggplot2][ggplot2::ggplot]*.
+#' @seealso [wykresPrzeplywyStatusy]
+##' @examples
+#' library(ggalluvial)
+#' wykresPrzeplywyStatusyOld
+#'
+#' # kod tworzący ten wykres:
+#' library(ggplot2)
+#' suppressMessages(wykresPrzeplywyStatusy +
+#'                    scale_fill_losy(NULL, type = "statusy",
+#'                                    variantOld = TRUE) +
+#'                    scale_colour_losy_fg(NULL, type = "statusy",
+#'                                         variantOld = TRUE, guide = "none"))
+"wykresPrzeplywyStatusyOld"
 #' @title Przykladowe wykresy - stare palety kolorow
 #' @description Wykres z przykładowym zestawieniem parametrów rozkładu
 #' przychodów z pracy (etatowej) pomiędzy daną szkołą a odpowiadającą jej
