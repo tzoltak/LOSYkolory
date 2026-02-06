@@ -243,9 +243,9 @@ wykresMigracjeWoj <-
                  x <- x[x$nazwa_woj == "nieznane", ]
                  x$label <- rep("Nieznane     \nwojewództwo", nrow(x))
                  if (nrow(x) > 0L) {
-                   x$geometryProperty <-
-                     sf::st_sfc(sf::st_point(c(14.6, 49.7)),
-                                crs = attributes(x$geometryProperty)$crs)
+                   x$geometry <-
+                     sf::st_sfc(sf::st_point(c(210000, 220000)),
+                                crs = attributes(x$geometry)$crs)
                  }
                  return(x)
                },

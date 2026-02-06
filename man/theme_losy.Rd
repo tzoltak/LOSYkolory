@@ -36,7 +36,7 @@ wprowadzono bowiem mechanizm przechowywania w \emph{temacie} wykresu domyślnych
 wartości \emph{estetyk} - są one modyfikowane wywołaniem \code{theme_losy()},
 a jednocześnie propagują się na wszystkie \emph{geometrie} danego wykresu,
 w których wartość odpowiedniej \emph{estetyki} nie została podana explicite
-(przez ustalenie w zadanej wartości lub przypisanie mapowaniaprzypisanie mapowania).
+(przez ustalenie w zadanej wartości lub przypisanie mapowania).
 }
 \examples{
 library(ggplot2)

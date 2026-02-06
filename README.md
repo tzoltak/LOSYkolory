@@ -101,7 +101,7 @@ noweDane <- daneDyplomyPlec # podstawiam tu te same dane, ale w realnym użyciu 
   zmien_rok_w_podpisie(2024) # zmiana roku w podpisie
 ```
 
-Jeśli pakiet wykorzystywany jest w ramach automatycznego genrowania raportów, kiedy dane niektórych wykresów mogą okazać się *zdegenrowane*, co oznacza, że dany wykres nie powinien zostać narysowany, ale nie powinno skutkować błędem, do podmiany danych należy użyć funkcji `podmien_dane_wykresu()`. W takim przypadku wszelkie modyfikacje szablonu muszą zostać dokonane przed podmianą danych:
+Jeśli pakiet wykorzystywany jest w ramach automatycznego generowania raportów, kiedy dane niektórych wykresów mogą okazać się *zdegenerowane*, co oznacza, że dany wykres nie powinien zostać narysowany, ale nie powinno skutkować błędem, do podmiany danych należy użyć funkcji `podmien_dane_wykresu()`. W takim przypadku wszelkie modyfikacje szablonu muszą zostać dokonane przed podmianą danych:
 
 ```{r}
 wykresDyplomyPlec |>
@@ -145,6 +145,18 @@ Jeśli jednak dane przekazane do funkcji `zlacz_z_mapa()` nie będą zawierać t
 ```{r}
 wykresMigracjeWoj + zlacz_z_mapa(noweDane[!is.na(noweDane$teryt_woj), ])
 ```
+
+### Eksportowanie *shape'ów*
+
+Zawarte w pakiecie geometrie pozwalające tworzyć kartogramy opisujące województwa (obiekt `sfWoj`) i powiaty (obiekt `sfPow`) można łatwo wyeksportować w celu wykorzystania ich w zewnętrznych aplikacjach, korzystając z funkcji pakietu *sf*.
+
+Np. poniższa linijka eksportuje geometrie powiatów do pliku w formacie GeoJSON o nazwie *powiaty.geojson*:
+
+```{r}
+sf::st_write(sfPow, "powiaty.geojson")
+```
+
+Więcej informacji o dostępnych formatach i opcjach zapisu znajduje się w [dokumentacji pakietu *sf*](https://r-spatial.github.io/sf/articles/sf2.html).
 
 ## Stare wersje palet
 

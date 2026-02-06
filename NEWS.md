@@ -1,3 +1,13 @@
+# LOSYkolory 0.7.0 (06.02.2026)
+
+## Nowe geometrie do kartogramów
+
+-   Geometrie dla powiatów zawiera teraz obiekt `sfPow`.
+    -   Funkcja `zlacz_z_mapa()` akceptuje teraz "sfPow" jako wartość argumentu `sf`.
+-   Geometrie dla województw zawarte w obiekcie `sfWoj` zostały zaktualizowane, a przy okazji trochę uszczegółowione, aby były kompatybilne (co do przebiegu granic) z geometriami powiatów.
+    -   W związku z utworzeniem nowej wersji obiektu przy pomocy nowszej wersji pakietu *sf* zmianie uległa nazwa kolumny przechowującej geometrie w ramach obiektu (z *geometryProperty* na *geometry*).
+    -   Adekwatnie zmodyfikowana została definicja `wykresMigracjeWoj`.
+
 # LOSYkolory 0.6.0 (16.12.2025)
 
 ## Nowe szablony wykresów
@@ -9,14 +19,14 @@
 
 ## Zmiany w paletach
 
--   W palecie "dyplomyZaw" zmieniono kolor opisujący brak dyplomu i certyfikatu na #b1b1b1 (jaśniejszy, niż poprzedio używany #3c4250).
+-   W palecie "dyplomyZaw" zmieniono kolor opisujący brak dyplomu i certyfikatu na #b1b1b1 (jaśniejszy, niż poprzednio używany #3c4250).
 
 # LOSYkolory 0.5.0 (24.10.2025)
 
 ## Nowe funkcje
 
 -   `podmien_dane_wykresu()` pozwala podjąć próbę podmiany danych w (szablonie) wykresu, obsługując sytuację, kiedy taka podmiana się nie powiedzie.
--   `porownaj_struktrue_danych()` porównuje strukturę dwóch obiektów, w umiarkowanie restrykcyjny sposób, adekwatny do określenia, czy (zapewne) da się jednego użyć zamiast drugoego jako źródło danych do narysowania tego samego wykresu (wykorzystywana wewnątrz `podmien_dane_wykresu()`).
+-   `porownaj_struktrue_danych()` porównuje strukturę dwóch obiektów, w umiarkowanie restrykcyjny sposób, adekwatny do określenia, czy (zapewne) da się jednego użyć zamiast drugiego jako źródło danych do narysowania tego samego wykresu (wykorzystywana wewnątrz `podmien_dane_wykresu()`).
 
 ## Aktualizacje
 

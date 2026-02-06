@@ -24,7 +24,7 @@
 #' @seealso [wykresMigracjeWoj]
 #' @importFrom utils data
 #' @export
-zlacz_z_mapa <- function(dane, sf = "sfWoj", allSf = FALSE) {
+zlacz_z_mapa <- function(dane, sf = c("sfWoj", "sfPow"), allSf = FALSE) {
   if (!requireNamespace("sf", quietly = TRUE)) {
     stop("Musisz mieć zainstalowany pakiet 'sf', aby móc rysować kartogramy.")
   }
