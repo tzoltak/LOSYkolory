@@ -20,8 +20,15 @@ w wywołanie \code{suppressWarnings()}, aby można było użyć jej jako argumen
 \code{\link[ggplot2:ggsf]{ggplot2::geom_sf_label()}}. Umożliwia to uniknięcie wywoływania przez,
 używane w domyślny sposób, ww. funkcje pakietu \emph{ggplot2} ostrzeżeń o tym, że
 \code{\link[sf:geos_unary]{sf::st_point_on_surface()}} może dawać nieprecyzyjne wyniki, jeśli jest
-stosowana w odniesieniu do obiektów  \link[sf:sf]{sf::sf} ze współrzędnymi opisanymi
+stosowana w odniesieniu do obiektów \link[sf:sf]{sf::sf} ze współrzędnymi opisanymi
 w ramach projekcji sferycznych (tj. jako szerokość i długość geograficzna).
+Wobec relatywnie niewielkiej rozległości Polski problem ten jest jednak
+pomijalny (nie da się za to w inny sposób łatwo wyłączyć tego ostrzeżenia).
+
+Nawiasem mówiąc, problem ten można by też rozwiązać używając geometrii
+zapisanych w projekcji nie przysparzającej takich kłopotów (np. EPSG 2180, co
+można uzyskać wywołując \code{sf::st_transform(sfWoj, 2180)}). Z tym że wiązało by
+to się z pewną zmianą kształtu geometrii wyświetlanych na wykresie.
 }
 \examples{
 st_point_on_surface_sw(sfWoj)

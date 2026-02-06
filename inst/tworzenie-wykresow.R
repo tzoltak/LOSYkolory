@@ -234,7 +234,7 @@ wykresMigracjeWoj <-
   ggplot(zlacz_z_mapa(daneMigracjeWoj),
          aes(fill = pct, colour = pct,
              label = percent_pl(pct, digits = 1))) +
-  geom_sf() +
+  geom_sf(linewidth = 0.8, colour = "black") +
   geom_sf_text(size = 5,
                fun.geometry = st_point_on_surface_sw) +
   geom_sf_text(aes(label = label), colour = "black", size = 5,
@@ -243,9 +243,9 @@ wykresMigracjeWoj <-
                  x <- x[x$nazwa_woj == "nieznane", ]
                  x$label <- rep("Nieznane     \nwojewództwo", nrow(x))
                  if (nrow(x) > 0L) {
-                   x$geometryProperty <-
+                   x$geometry <-
                      sf::st_sfc(sf::st_point(c(14.6, 49.7)),
-                                crs = attributes(x$geometryProperty)$crs)
+                                crs = attributes(x$geometry)$crs)
                  }
                  return(x)
                },

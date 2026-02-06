@@ -16,7 +16,7 @@
 #' wartości *estetyk* - są one modyfikowane wywołaniem `theme_losy()`,
 #' a jednocześnie propagują się na wszystkie *geometrie* danego wykresu,
 #' w których wartość odpowiedniej *estetyki* nie została podana explicite
-#' (przez ustalenie w zadanej wartości lub przypisanie mapowaniaprzypisanie mapowania).
+#' (przez ustalenie w zadanej wartości lub przypisanie mapowania).
 #' @examples
 #' library(ggplot2)
 #' p <- ggplot(daneTypySzkol,

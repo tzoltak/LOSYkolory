@@ -4,7 +4,7 @@
 \alias{zlacz_z_mapa}
 \title{Przygotowanie danych do kartogramow}
 \usage{
-zlacz_z_mapa(dane, sf = "sfWoj", allSf = FALSE)
+zlacz_z_mapa(dane, sf = c("sfWoj", "sfPow"), allSf = FALSE)
 }
 \arguments{
 \item{dane}{ramka danych z danymi do połączenia; co do zasady powinna

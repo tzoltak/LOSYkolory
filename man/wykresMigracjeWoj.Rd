@@ -14,6 +14,8 @@ wykresMigracjeWoj
 Wykres z przykładowym kartogramem ilustrującym migracje na
 poziomie województw (procent absolwentów mieszkających w poszczególnych
 województwach).
+
+Wykres rysowany jest w \emph{czystym} układzie WGS 84, bez stosowania projekcji.
 }
 \examples{
 wykresMigracjeWoj
@@ -21,24 +23,24 @@ wykresMigracjeWoj
 # kod tworzący ten wykres:
 library(ggplot2)
 ggplot(zlacz_z_mapa(daneMigracjeWoj),
-      aes(fill = pct, colour = pct,
-         label = percent_pl(pct, digits = 1))) +
-  geom_sf() +
+       aes(fill = pct, colour = pct,
+           label = percent_pl(pct, digits = 1))) +
+  geom_sf(linewidth = 0.8, colour = "black") +
   geom_sf_text(size = 5,
                fun.geometry = st_point_on_surface_sw) +
   geom_sf_text(aes(label = label), colour = "black", size = 5,
                hjust = "left", vjust = "bottom",
                data = function(x) {
                  x <- x[x$nazwa_woj == "nieznane", ]
-                x$label <- rep("Nieznane     \nwojewództwo", nrow(x))
-                if (nrow(x) > 0L) {
-                  x$geometryProperty <-
-                    sf::st_sfc(sf::st_point(c(14.6, 49.7)),
-                               crs = attributes(x$geometryProperty)$crs)
-                }
-                return(x)
-              },
-              fun.geometry = st_point_on_surface_sw) +
+                 x$label <- rep("Nieznane     \nwojewództwo", nrow(x))
+                 if (nrow(x) > 0L) {
+                   x$geometry <-
+                     sf::st_sfc(sf::st_point(c(14.6, 49.7)),
+                                crs = attributes(x$geometry)$crs)
+                 }
+                 return(x)
+               },
+               fun.geometry = st_point_on_surface_sw) +
   scale_x_continuous(NULL, labels = function(x) {return(rep("", length(x)))},
                      expand = c(0, 0)) +
   scale_y_continuous(NULL, labels = function(x) {return(rep("", length(x)))},
