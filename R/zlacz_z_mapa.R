@@ -1,8 +1,8 @@
 #' @title Przygotowanie danych do kartogramow
 #' @description
 #' Funkcja przyłącza dane opisujące wskaźniki obliczone na poziomie województw
-#' do obiektu klasy [sf::sf] zawierającego mapę, która ma zostać użyta do
-#' narysowania kartogramu.
+#' lub powiatów do obiektu klasy [sf::sf] zawierającego mapę, która ma zostać
+#' użyta do narysowania kartogramu.
 #' @param dane ramka danych z danymi do połączenia; co do zasady powinna
 #' zawierać kolumny `teryt_woj` (TERYT województwa w formacie 1/2-cyfrowym) lub
 #' `nazwa_woj` (ciągi znaków z nazwami województw)

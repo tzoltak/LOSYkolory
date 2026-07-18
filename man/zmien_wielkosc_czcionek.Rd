@@ -14,7 +14,7 @@ zmien_wielkosc_etykiet(g, size = NULL, rescale = NULL)
 
 \item{baseSize}{opcjonalnie liczba - bazowa wielkość czcionki - działa jak
 argument \code{base_size} w funkcjach pakietu \emph{ggplot2} ustawiających
-\emph{\link[ggplot2:ggtheme]{predefiniowane tematy}} wykresu (por. szczegółowy
+\emph{\link[ggplot2:theme_minimal]{predefiniowane tematy}} wykresu (por. szczegółowy
 opis poniżej)}
 
 \item{rescale}{opcjonalnie liczba, przez którą przemnożona zostanie wielkość
@@ -47,7 +47,7 @@ z argumentu \code{geoms=FALSE},
 }
 
 Jako \emph{geometrie} tekstowe traktowane są te, które zostały utworzone za pomocą
-funkcji \code{\link[ggplot2:geom_text]{ggplot2::geom_text()}} lub \code{\link[ggplot2:geom_text]{ggplot2::geom_label()}}. W praktyce
+funkcji \code{\link[ggplot2:geom_text]{ggplot2::geom_text()}} lub \code{\link[ggplot2:geom_label]{ggplot2::geom_label()}}. W praktyce
 monitoringu karier odpowiadają one za prezentowanie etykiet wartości
 procentowych na wykresach słupkowych.
 
@@ -60,7 +60,7 @@ Jeśli \code{geoms=TRUE}, za pośrednictwem zmian w \emph{temacie} wykresu
 **we wszystkich \emph{warstwach} ** zostaną też zmienione wartości wszystkich
 \emph{estetyk}, które mapują się na domyślną wartość \emph{estetyki} \code{fontsize}
 definiowaną w ramach elementu \code{geom} \emph{tematu} danego wykresu
-(por. \code{\link[ggplot2:aes_eval]{ggplot2::from_theme()}}).
+(por. \code{\link[ggplot2:from_theme]{ggplot2::from_theme()}}).
 }
 \details{
 W wywołaniach funkcji można podać wartość tylko argumentu \code{rescale} albo
@@ -77,7 +77,7 @@ ustawiona w sposób absolutny, modyfikuje ją mnożąc przez wartość argumentu
 relatywnie, jej definicja zostaje pozostawiona bez zmian, gdyż zmiana
 wielkości zostanie na nią spropagowana automatycznie). Jeśli dany wykres nie
 miał jeszcze przypisanego żadnego \emph{tematu}, zostanie mu przypisany temat
-zwrócony przez \code{\link[ggplot2:get_theme]{ggplot2::theme_get()}}, a następnie dokonane zostaną
+zwrócony przez \code{\link[ggplot2:theme_get]{ggplot2::theme_get()}}, a następnie dokonane zostaną
 modyfikacje wielkości elementów tekstowych.
 }
 \examples{

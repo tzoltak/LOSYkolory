@@ -59,7 +59,7 @@ same time, via \code{aesthetics = c("colour", "fill")}.}
 \description{
 Umożliwia zdefiniowanie w wykresie \emph{\link[ggplot2:ggplot]{ggplot2}} skali kolorów
 mających jak najwyższy kontrast w stosunku do skali wypełnienia zdefiniowanej
-przy pomocy \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradient()}}.
+przy pomocy \code{\link[ggplot2:scale_fill_gradient]{ggplot2::scale_fill_gradient()}}.
 }
 \examples{
 library(ggplot2)

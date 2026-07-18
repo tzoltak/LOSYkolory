@@ -49,8 +49,7 @@
 #' [wykresStatusy], [wykresStatusyPlec], [wykresStatusyZawod],
 #' [wykresStatusyGrupaOdn], [wykresTypySzkol]
 #' @importFrom extrafont fonts
-#' @importFrom ggplot2 %+replace% element_blank element_line element_text
-#' theme theme_minimal unit
+#' @importFrom ggplot2 %+replace% element_blank element_line element_text theme theme_minimal unit
 #' @export
 theme_losy <- function(base_size = 18, base_family = "",
                        base_line_size = base_size/22,

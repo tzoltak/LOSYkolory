@@ -1,3 +1,12 @@
+# LOSYkolory 0.8.0 (18.07.2026)
+
+## Kartogramy
+
+-   Zmieniono projekcje obiektów `sfWoj` i `sfPow` z WGS84 (EPSG:4326) na PUWG 1992 (EPSG:2180), dzięki czemu Polska wygląda nieco ładniej (nie jest *zwężona* w swoich południowych rejonach).
+-   Dodano nową funkcję `przygotuj_dane_etykiety_nieznanej_jst()`, w której zamknięto kod odpowiedzialny za przygotowanie danych, na podstawie których można nanieść na kartogram etykietę obszaru reprezentującego nieznaną JST (przy okazji nieco modyfikując ten kod).
+    -   Adekwatnie zmodyfikowana została definicja `wykresMigracjeWoj`.
+-   Z definicji `wykresMigracjeWoj` usunięto argumenty `fun.geometry` w wywołaniach `geom_sf_text()` - nie wpływa to na uzyskiwany efekt, a kod jest prostszy.
+
 # LOSYkolory 0.7.0 (07.02.2026)
 
 ## Nowe geometrie do kartogramów

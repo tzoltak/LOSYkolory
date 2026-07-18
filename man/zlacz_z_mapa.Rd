@@ -23,8 +23,8 @@ obiekt klasy \link[sf:sf]{sf::sf}
 }
 \description{
 Funkcja przyłącza dane opisujące wskaźniki obliczone na poziomie województw
-do obiektu klasy \link[sf:sf]{sf::sf} zawierającego mapę, która ma zostać użyta do
-narysowania kartogramu.
+lub powiatów do obiektu klasy \link[sf:sf]{sf::sf} zawierającego mapę, która ma zostać
+użyta do narysowania kartogramu.
 }
 \details{
 Obiekt \link{sfWoj} zawiera również rekord opisujący \emph{nieznane} województwo - jest

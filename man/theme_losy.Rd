@@ -13,19 +13,19 @@ theme_losy(
 )
 }
 \arguments{
-\item{base_size}{liczba, p. \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}}}
+\item{base_size}{liczba, p. \code{\link[ggplot2:theme_minimal]{ggplot2::theme_minimal()}}}
 
-\item{base_family}{opcjonalnie ciąg znaków, p. \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}}}
+\item{base_family}{opcjonalnie ciąg znaków, p. \code{\link[ggplot2:theme_minimal]{ggplot2::theme_minimal()}}}
 
-\item{base_line_size}{opcjonalnie liczba, p. \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}}}
+\item{base_line_size}{opcjonalnie liczba, p. \code{\link[ggplot2:theme_minimal]{ggplot2::theme_minimal()}}}
 
-\item{base_rect_size}{opcjonalnie liczba, p. \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}}}
+\item{base_rect_size}{opcjonalnie liczba, p. \code{\link[ggplot2:theme_minimal]{ggplot2::theme_minimal()}}}
 
 \item{axis_ticks}{opcjonalnie ciąg znaków wskazujący, na której osi/osiach
 wykresu mają zostać narysowane \emph{pręciki} przy podanych wartościach}
 }
 \description{
-Nadaje wykresowi \emph{\link[ggplot2:ggtheme]{temat}} definiujący jego wygląd
+Nadaje wykresowi \emph{\link[ggplot2:theme_minimal]{temat}} definiujący jego wygląd
 (ale nie \emph{układ}) odpowiedni do wykorzystania na potrzeby systemu monitoringu
 karier absolwentów szkół ponadpodstawowych.
 }

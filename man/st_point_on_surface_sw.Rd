@@ -11,15 +11,15 @@ st_point_on_surface_sw(x)
 }
 \value{
 obiekt tej samej klasy, co \code{x}, ale z przekształconą geometrią
-(p. \code{\link[sf:geos_unary]{sf::st_point_on_surface()}} i \code{\link[sf:st_zm]{sf::st_zm()}})
+(p. \code{\link[sf:st_point_on_surface]{sf::st_point_on_surface()}} i \code{\link[sf:st_zm]{sf::st_zm()}})
 }
 \description{
 Funkcja opakowuje wywołanie \code{sf::st_point_on_surface(sf::st_zm(x))}
 w wywołanie \code{suppressWarnings()}, aby można było użyć jej jako argumentu
-\code{fun.geometry} w wywołaniach \code{\link[ggplot2:ggsf]{ggplot2::geom_sf_text()}} lub
-\code{\link[ggplot2:ggsf]{ggplot2::geom_sf_label()}}. Umożliwia to uniknięcie wywoływania przez,
+\code{fun.geometry} w wywołaniach \code{\link[ggplot2:geom_sf_text]{ggplot2::geom_sf_text()}} lub
+\code{\link[ggplot2:geom_sf_label]{ggplot2::geom_sf_label()}}. Umożliwia to uniknięcie wywoływania przez,
 używane w domyślny sposób, ww. funkcje pakietu \emph{ggplot2} ostrzeżeń o tym, że
-\code{\link[sf:geos_unary]{sf::st_point_on_surface()}} może dawać nieprecyzyjne wyniki, jeśli jest
+\code{\link[sf:st_point_on_surface]{sf::st_point_on_surface()}} może dawać nieprecyzyjne wyniki, jeśli jest
 stosowana w odniesieniu do obiektów \link[sf:sf]{sf::sf} ze współrzędnymi opisanymi
 w ramach projekcji sferycznych (tj. jako szerokość i długość geograficzna).
 Wobec relatywnie niewielkiej rozległości Polski problem ten jest jednak
@@ -37,5 +37,5 @@ st_point_on_surface_sw(sfWoj)
 }
 }
 \seealso{
-\link{wykresMigracjeWoj}, \code{\link[ggplot2:ggsf]{ggplot2::geom_sf_text()}}
+\link{wykresMigracjeWoj}, \code{\link[ggplot2:geom_sf_text]{ggplot2::geom_sf_text()}}
 }

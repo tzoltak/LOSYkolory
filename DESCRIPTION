@@ -1,7 +1,7 @@
 Package: LOSYkolory
 Type: Package
 Title: Skale kolorow wykorzystywane w systemie monitoringu karier absolwentow szkol ponadpodstawowych
-Version: 0.7.0
+Version: 0.8.0
 Authors@R: c(
     person(
       "Tomasz", "Żółtak",
@@ -27,4 +27,4 @@ LazyDataCompression: xz
 Language: pl
 Roxygen: list(markdown = TRUE)
 NeedsCompilation: no
-RoxygenNote: 7.3.3
+Config/roxygen2/version: 8.0.0
