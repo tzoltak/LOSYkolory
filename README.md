@@ -12,11 +12,11 @@ Pakiet nie jest wypchnięty na CRAN, więc trzeba instalować go ze źródeł.
 
 Ponieważ jednak zawiera jedynie kod w R, nie ma potrzeby zaopatrywać się w kompilatory, itp.
 
-Instalację najprościej przeprowadzić wykorzystując pakiet *remotes*:
+Instalację najprościej przeprowadzić wykorzystując pakiet *pak*:
 
-``` r
-install.packages('remotes') # potrzebne tylko, gdy nie jest jeszcze zainstalowany
-remotes::install_github('tzoltak/LOSYkolory')
+```{r}
+install.packages('pak') # potrzebne tylko, gdy nie jest jeszcze zainstalowany
+pak::pak('tzoltak/LOSYwskazniki')
 ```
 
 Dokładnie w ten sam sposób można przeprowadzić aktualizację pakietu do najnowszej wersji.
