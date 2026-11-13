@@ -1,3 +1,19 @@
+# LOSYkolory 0.9.1 (13.11.2026)
+
+## Udoskonalenia
+
+-   Ogólnie biorąc, wprowadzone udoskonalenia i naprawione błędy umożliwiają bezproblemowe rysowanie kartogramów na poziomie powiatów.
+-   `przygotuj_dane_etykiety_nieznanej_jst()`:
+    -   Otrzymała nowy (opcjonalny) argument `nazwaKolumnyJST` pozwalający wskazać inną niż domyślna wartość "nazwa_woj" nazwę kolumny, w której będzie szukać nieznanej JST;
+    -   We wskazanej kolumnie szuka wartości "nieznane", "nieznany", "nieznana", a nie tylko tej pierwszej.
+
+## Usunięte błędy
+
+-   `przygotuj_dane_etykiety_nieznanej_jst()` radzi sobie w sytuacji, gdy w przekazanych do niej danych nie ma żadnej *nieznanej* JST;
+-   `zlacza_z_mapa()` wyświetla adekwatne ostrzeżenie dotyczące zestawu kolumn, po których odbywa się łączenie również wywołana z argumentem `sf="sfPow"`;
+-   Dokumentację `zlacz_z_mapa()` już nie twierdzi, że jedyną dozwoloną wartością argumentu `sf` jest "sfWoj";
+-   W obiekcie `sfPow` uzupełniono wartości kolumn `teryt_woj` i `nazwa_woj` (które wcześniej były wypełnione brakami danych).
+
 # LOSYkolory 0.9.0 (13.11.2026)
 
 ## Zmiany w paletach

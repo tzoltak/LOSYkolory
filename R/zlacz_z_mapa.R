@@ -7,7 +7,8 @@
 #' zawierać kolumny `teryt_woj` (TERYT województwa w formacie 1/2-cyfrowym) lub
 #' `nazwa_woj` (ciągi znaków z nazwami województw)
 #' @param sf opcjonalnie ciąg znaków z nazwą obiektu [sf::sf], z którym dane
-#' mają zostać połączone - obecnie jedyną akceptowaną wartością jest "sfWoj"
+#' mają zostać połączone - obecnie jedyne akceptowane wartości to "sfWoj"
+#' (mapa województw) i "sfPow" (mapa powiatów)
 #' @param allSf opcjonalnie wartość logiczna - czy w połączonych danych mają
 #' znaleźć się wszystkie województwa (w tym *nieznane województwo*), nawet jeśli
 #' niektóre z nich nie występują w danych przekazanych do połączenia?
@@ -51,8 +52,13 @@ zlacz_z_mapa <- function(dane, sf = c("sfWoj", "sfPow"), allSf = FALSE) {
   }
   stopifnot(!any(duplicated(dane[, wspolneKolumny])),
             !any(duplicated(sfObiekt[, wspolneKolumny])))
-  if (any(!(wspolneKolumny %in% c("teryt_woj", "nazwa_woj")))) {
-    message("Łączenie z wykorzystaniem kolumn innych niż `teryt_woj` lub `nazwa_woj` nie jest zalecane. Sprawdź uważnie wyniki łączenia.")
+  if ((any(!(wspolneKolumny %in% c("teryt_woj", "nazwa_woj"))) & sf == "sfWoj") |
+      (any(!(wspolneKolumny %in% c("teryt_pow", "nazwa_pow"))) & sf == "sfPow")) {
+    message("Łączenie z wykorzystaniem kolumn innych niż ",
+            ifelse(sf == "sfWoj",
+                   "`teryt_woj` lub `nazwa_woj`",
+                   "`teryt_pow` lub `nazwa_pow`"),
+            " nie jest zalecane. Sprawdź uważnie wyniki łączenia.")
   }
   return(merge(sfObiekt, dane, all.x = allSf))
 }

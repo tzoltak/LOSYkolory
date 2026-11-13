@@ -9,6 +9,7 @@
 #' dodatnie oznaczają przesunięcie w prawo); domyślnie 0
 #' @param przesuniecieY opcjonalnie przesunięcie etykiety w pionie (wartości
 #' dodatnie oznaczają przesunięcie w górę); domyślnie 10000
+#' @param nazwaKolumnyJST opcjonalnie nazwa kolumny zawierającej nazwy JST
 #' @details
 #' Funkcja zakłada, że rozsądnym położeniem etykiety jest nieco w górę od lewego
 #' górnego rogu obszaru, w którym mieści się wielokąt reprezentujący na
@@ -21,17 +22,22 @@
 #' @export
 przygotuj_dane_etykiety_nieznanej_jst <- function(dane, etykieta,
                                                   przesuniecieX = 0,
-                                                  przesuniecieY = 10000) {
+                                                  przesuniecieY = 10000,
+                                                  nazwaKolumnyJST = "nazwa_woj") {
   stopifnot(inherits(dane, "sf"),
-            "nazwa_woj" %in% names(dane),
             is.character(etykieta), length(etykieta) == 1L, !is.na(etykieta),
             is.numeric(przesuniecieX), length(przesuniecieX) == 1L,
             !anyNA(przesuniecieX),
             is.numeric(przesuniecieY), length(przesuniecieY) == 1L,
-            !anyNA(przesuniecieY))
+            !anyNA(przesuniecieY),
+            is.character(nazwaKolumnyJST), length(nazwaKolumnyJST) == 1L,
+            !anyNA(nazwaKolumnyJST),
+            nazwaKolumnyJST %in% names(dane),
+            !all(is.na(dane[[nazwaKolumnyJST]])))
 
-  dane <- dane[dane$nazwa_woj == "nieznane", ]
+  dane <- dane[dane[[nazwaKolumnyJST]] %in% c("nieznane", "nieznany", "nieznana"), ]
   dane$label <- rep(etykieta, nrow(dane))
+  if (nrow(dane) == 0) return(dane)
   dane$geometry <-
     sf::st_sfc(
       sf::st_multipoint(

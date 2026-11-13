@@ -8,7 +8,8 @@ przygotuj_dane_etykiety_nieznanej_jst(
   dane,
   etykieta,
   przesuniecieX = 0,
-  przesuniecieY = 10000
+  przesuniecieY = 10000,
+  nazwaKolumnyJST = "nazwa_woj"
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ dodatnie oznaczają przesunięcie w prawo); domyślnie 0}
 
 \item{przesuniecieY}{opcjonalnie przesunięcie etykiety w pionie (wartości
 dodatnie oznaczają przesunięcie w górę); domyślnie 10000}
+
+\item{nazwaKolumnyJST}{opcjonalnie nazwa kolumny zawierającej nazwy JST}
 }
 \value{
 obiekt klasy \link[sf:sf]{sf::sf}

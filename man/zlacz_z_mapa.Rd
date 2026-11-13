@@ -12,7 +12,8 @@ zawierać kolumny \code{teryt_woj} (TERYT województwa w formacie 1/2-cyfrowym) 
 \code{nazwa_woj} (ciągi znaków z nazwami województw)}
 
 \item{sf}{opcjonalnie ciąg znaków z nazwą obiektu \link[sf:sf]{sf::sf}, z którym dane
-mają zostać połączone - obecnie jedyną akceptowaną wartością jest "sfWoj"}
+mają zostać połączone - obecnie jedyne akceptowane wartości to "sfWoj"
+(mapa województw) i "sfPow" (mapa powiatów)}
 
 \item{allSf}{opcjonalnie wartość logiczna - czy w połączonych danych mają
 znaleźć się wszystkie województwa (w tym \emph{nieznane województwo}), nawet jeśli
