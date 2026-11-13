@@ -1,3 +1,11 @@
+# LOSYkolory 0.9.0 (13.11.2026)
+
+## Zmiany w paletach
+
+-   Paleta "formyZatrudn" została rozszerzona o kolor odpowiadający wartości "Zatrudnieni tylko w rolnictwie".
+    -  Zmodyfikowano `daneFormyZatrudnGrupaOdn`, aby zawierały również wartość "Zatrudnieni tylko w rolnictwie" w kolumnie `forma_zatrudn`.
+    -  Zaktualizowano `wykresFormyZatrudnGrupaOdn` i `wykresFormyZatrudnGrupaOdnOld`.
+
 # LOSYkolory 0.8.0 (18.07.2026)
 
 ## Kartogramy
